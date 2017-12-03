@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is a HeaderView"
+        android:id="@+id/idTitle"
+        style="@android:style/TextAppearance.Large"
+        android:padding="@dimen/dimen_16"
+        android:paddingLeft="@dimen/dimen_6"/>
+
+</LinearLayout>

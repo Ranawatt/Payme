@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_color4"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_200"
+        android:src="@drawable/bg_color2"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_300"
+        android:layout_marginTop="@dimen/dimen_100"
+        android:orientation="vertical"
+        android:weightSum="1">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimen_0"
+        android:layout_height="@dimen/dimen_150"
+        android:src="@drawable/album9"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="You Can Order grocery, weararables and daily use goods"
+        android:textAlignment="center"
+        android:padding="@dimen/dimen_16"
+        android:textSize="@dimen/dimen_25"
+        android:textColor="@android:color/white"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_weight="1.07" />
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/layoutDots"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/dimen_20"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="@dimen/dimen_20"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal"></LinearLayout>-->
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:alpha=".5"-->
+        <!--android:layout_above="@id/layoutDots"-->
+        <!--android:background="@android:color/white" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_next"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--style="@style/Base.TextAppearance.AppCompat.Button"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="@null"-->
+        <!--android:text="@string/next"-->
+        <!--android:textColor="@android:color/white" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_skip"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:background="@null"-->
+        <!--android:text="@string/skip"-->
+        <!--android:textColor="@android:color/white" />-->
+
+
+</RelativeLayout>

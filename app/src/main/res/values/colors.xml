@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF2C2E2E</color>
+    <color name="colorPrimary1">#F50057</color>
+    <color name="colorPrimaryDarke">#303F9F</color>
+    <color name="colorAccent">#26bee4</color>
+    <color name="colorAccentDark">#E7CA0AC4</color>
+    <color name="colorSpicy">#FF480540</color>
+    <color name="colorMango">#FF123012</color>
+    <color name="colorPrimaryBanana">#FC05730C</color>
+    <color name="colorPrimaryDark">#F7045B4F</color>
+    <color name="log_in">#FFBEB3B3</color>
+    <color name="coloroutliner">#C7B1E6DB</color>
+    <color name="textColorPrimary">#FBE13F0E</color>
+    <color name="colorMagenta">#03f5f3f2</color>
+    <color name="colorSky">#96CFEBF2</color>
+    <color name="viewBg">#f1f5f8</color>
+    <color name="album_title">#4c4c4c</color>
+    <color name="orange">#F6EC6606</color>
+    <color name="forgot_bg">#85c5f902</color>
+    <color name="sign_up">#0e1e1b</color>
+    <color name="splashBackground">#607d8b</color>
+    <!--<color name="log_in">#FF112828</color>-->
+    <color name="grey_light">#9e9e9e</color>
+    <color name="black_50">#80000000</color>
+    <color name="color_white">#FFFFFFFF</color>
+    <color name="color_red">#FBEF0317</color>
+    <color name="color_plane">#F109E6B8</color>
+    <color name="book_now">#FFD700</color>
+    <!--Welcome Slide Gradient Color-->
+    <color name="grad1_color">#FB05B79F</color>
+    <color name="grad2_color">#F245CAB8</color>
+    <color name="grad3_color">#D17CB1AA</color>
+    <color name="grad4_color">#D198A6A4</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+
+
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="@dimen/nav_header_height"
+    android:background="@drawable/side_nav_bar"
+    android:paddingBottom="5dp"
+    android:paddingLeft="4dp"
+    android:paddingRight="0dp"
+    android:paddingTop="11dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark" android:orientation="vertical"
+    android:gravity="bottom"
+    android:weightSum="1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile"
+            android:layout_width="110dp"
+            android:layout_height="145dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/myimage"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginLeft="4dp"
+            android:weightSum="1">
+
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="5dp"
+                android:text="You are not signed in."
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            <TextView android:layout_width="match_parent" android:layout_height="51dp"
+                android:layout_marginLeft="4dp"
+                android:text="Get an account to access all trips,travellers.wallet and saved cards" android:id="@+id/textView"
+                android:layout_weight="0.82" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="SIGN IN OR REGISTER"
+                android:id="@+id/button"
+                android:layout_marginLeft="28dp"
+                android:backgroundTintMode="src_over"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

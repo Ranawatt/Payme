@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<ScrollView
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<android.support.constraint.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvPassenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASSENGER"
+        style="@style/TextAppearance.AppCompat.Caption"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/tvPassengerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MR. JAMES BOND"
+        android:textColor="@color/color_red"
+        tools:layout_editor_absoluteY="41dp"
+        style="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintLeft_toLeftOf="@+id/tvPassenger" />
+
+    <ImageView
+        android:id="@+id/leftRectangle"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/rectangle_stroke"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="100dp" />
+    <ImageView
+        android:id="@+id/rightRectangle"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="32dp"
+        app:srcCompat="@drawable/rectangle_stroke"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="100dp"
+        android:layout_marginEnd="32dp" />
+
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black_50"
+        app:layout_constraintLeft_toRightOf="@+id/leftRectangle"
+        app:layout_constraintRight_toLeftOf="@+id/rightRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/rightRectangle"
+        app:layout_constraintBottom_toTopOf="@+id/rightRectangle"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+    <TextView
+        android:id="@+id/tvOriginAirport"
+        android:layout_width="40dp"
+        android:layout_height="23dp"
+        android:text="SAX"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_20"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="132dp" />
+
+    <TextView
+        android:id="@+id/tvDestinationAirport"
+        android:layout_width="40dp"
+        android:layout_height="23dp"
+        android:text="LAX"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_20"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="132dp" />
+
+    <TextView
+        android:id="@+id/tvBoardingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BOARDING TIME"
+        style="@style/TextAppearance.AppCompat.Caption"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <TextView
+        android:id="@+id/tvBoardTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02:10 PM"
+        android:textColor="@color/colorPrimaryDarke"
+        style="@style/TextAppearance.AppCompat.Display2"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <TextView
+        android:id="@+id/tvDeparture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DEPARTURE"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+    <TextView
+        android:id="@+id/tvDepartureTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02:40 PM"
+        android:textColor="@color/colorPrimaryBanana"
+        style="@style/TextAppearance.AppCompat.Display1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BOARDING IN"
+        style="@style/TextAppearance.AppCompat.Caption"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <TextView
+        android:id="@+id/tvBoardingInCountdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:15"
+        android:textColor="@color/textColorPrimary"
+        style="@style/TextAppearance.AppCompat.Display2"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ARRIVAL"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+    <TextView
+        android:id="@+id/tvArrivalTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:40 AM"
+        android:textColor="@color/colorPrimaryBanana"
+        style="@style/TextAppearance.AppCompat.Display1"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+    <ImageView
+        android:id="@+id/tableHeaderImage"
+        android:background="@color/colorPrimary1"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="@dimen/dimen_30"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <ImageView
+        android:id="@+id/tableImage"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="@dimen/dimen_60"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="377dp" />
+
+    <TextView
+        android:id="@+id/tvTerminalLabel"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:text="TERMINAL"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="@dimen/text_20"
+        android:textColor="@color/color_white"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="81dp"
+        android:layout_height="20dp"
+        android:text="GATE"
+        android:textSize="@dimen/text_20"
+        android:textColor="@color/color_white"
+        android:textAlignment="center"
+        style="@style/TextAppearance.AppCompat.Headline"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="56dp"
+        android:layout_height="20dp"
+        android:text="SEAT"
+        android:textSize="@dimen/text_20"
+        android:textAlignment="center"
+        android:textColor="@color/color_white"
+        tools:layout_editor_absoluteX="292dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <TextView
+        android:id="@+id/tvTerminal"
+        android:layout_width="117dp"
+        android:layout_height="51dp"
+        android:text="2"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/text_42"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <TextView
+        android:id="@+id/tvGate"
+        android:layout_width="113dp"
+        android:layout_height="51dp"
+        android:text="58B"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_42"
+        android:textColor="@color/color_white"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <TextView
+        android:id="@+id/tvSeat"
+        android:layout_width="83dp"
+        android:layout_height="51dp"
+        android:text="24A"
+        android:textAlignment="center"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/text_42"
+        tools:layout_editor_absoluteX="283dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        app:srcCompat="@drawable/images_qr"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="440dp" />
+
+    <TextView
+        android:id="@+id/tvFlightCode"
+        android:layout_width="139dp"
+        android:layout_height="38dp"
+        android:text="UDA2465"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccentDark"
+        android:textSize="@dimen/text_30"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="194dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/art_plane"
+        app:layout_constraintLeft_toRightOf="@+id/leftRectangle"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="99dp" />
+
+
+</android.support.constraint.ConstraintLayout>
+    </ScrollView>
+    </layout>

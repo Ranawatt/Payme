@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sugandhkumar.payme.UploadActivity">
+
+    <Button
+        android:id="@+id/btnChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Choose"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnChoose"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_toStartOf="@+id/etCost" />
+
+    <EditText
+        android:id="@+id/etCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="stay cost"
+        android:layout_below="@+id/btnChoose"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/btnChoose" />
+
+    <ImageView
+        android:id="@+id/ivSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="320dp"
+        app:srcCompat="@drawable/album10"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Upload"
+        android:layout_below="@+id/ivSelected"
+        android:layout_toStartOf="@+id/etCost" />
+
+    <TextView
+        android:id="@+id/tvShowUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnUpload"
+        android:layout_below="@+id/btnUpload"
+        android:layout_marginTop="10dp"
+        android:text="View Upload"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_alignStart="@+id/btnUpload" />
+
+    <EditText
+        android:id="@+id/etRemarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvShowUpload"
+        android:inputType="textPersonName"
+        android:textAllCaps="true"
+        android:hint="Remarks"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/etRatingPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="6"
+        android:hint="RatingPoint"
+        android:inputType="numberDecimal"
+        android:layout_above="@+id/tvShowUpload"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/etDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:ems="6"
+        android:hint="Distance"
+        android:inputType="numberDecimal" />
+
+</RelativeLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="@dimen/dimen_8"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/dimen_50"
+        android:weightSum="1">
+
+        <RadioButton
+            android:id="@+id/electricBoard"
+            android:layout_width="@dimen/dimen_180"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16"
+            android:text=" Electricity Boards"
+            android:checked="true"
+            android:textSize="@dimen/dimen_16"/>
+
+        <RadioButton
+            android:id="@+id/apartments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Apartments"
+            android:checked="false"
+            android:textSize="@dimen/dimen_16"/>
+    </RadioGroup>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_40">
+
+        <EditText
+            android:id="@+id/etState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="State"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_1">
+
+        <EditText
+            android:id="@+id/etBoard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Electricity Board"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/consumer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_1">
+
+        <EditText
+            android:id="@+id/etConsumer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Consumer Number"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/fastForward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/consumer"
+        android:textColor="@color/colorAccent"
+        android:text=">> Fast Forward" />
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/get_bill"
+        android:text="GET BILL"
+        android:textSize="@dimen/dimen_20"
+        android:textColor="@color/color_white"
+        android:background="@color/colorAccent"
+        android:shadowRadius="@integer/cast_libraries_material_featurehighlight_pulse_base_alpha"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_gravity="center_horizontal"
+        android:elevation="@dimen/dimen_6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="@dimen/dimen_180"
+            android:layout_height="wrap_content"
+            android:id="@+id/btOffers"
+            android:text="Offers"/>
+
+        <Button
+            android:layout_width="@dimen/dimen_180"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-7dp"
+            android:id="@+id/btHelp"
+            android:text="Help"
+            android:layout_weight="1.06" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/recharge" android:icon="@android:drawable/ic_menu_camera"
+            android:title="Recharge or Pay for" />
+        <item android:id="@+id/hotels" android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Hotels" />
+        <item android:id="@+id/mobile" android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="Mobile_Accessories" />
+        <item android:id="@+id/electronics" android:icon="@android:drawable/ic_menu_manage"
+            android:title="Electronics" />
+        <item android:id="@+id/fashion" android:icon="@android:drawable/ic_menu_edit"
+            android:title="Men's Fashion" />
+        <item android:id="@+id/wfashion" android:icon="@android:drawable/ic_menu_directions"
+            android:title="Women's Fashion" />
+        <item android:id="@+id/baby" android:icon="@android:drawable/ic_menu_day"
+            android:title="Baby,Kids_Toys" />
+        <item android:id="@+id/home" android:icon="@android:drawable/ic_menu_more"
+            android:title="Home and Kitchen" />
+        <item android:id="@+id/deals" android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Hot Deals" />
+        <item android:id="@+id/sports" android:icon="@android:drawable/ic_menu_compass"
+            android:title="Sports and Health" />
+        <item android:id="@+id/gifts" android:icon="@android:drawable/ic_menu_crop"
+            android:title="Gifts and Sweets" />
+        <item android:id="@+id/bus" android:icon="@android:drawable/ic_input_get"
+            android:title="Bus Tickets" />
+        <item android:id="@+id/movies" android:icon="@android:drawable/ic_popup_reminder"
+            android:title="Movies and TVshows" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
+                android:title="Share" />
+            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
+                android:title="Send" />
+            <item android:id="@+id/navsign_out" android:icon="@android:drawable/ic_menu_set_as"
+                android:title="SignOut"/>
+        </menu>
+    </item>
+
+</menu>

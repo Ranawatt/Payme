@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mob_icon"
+        android:title="RECHARGE"
+        android:icon="@drawable/mobile_color" />
+    <item
+        android:id="@+id/electric_bill"
+        android:title="ELECTRIC BILL"
+        android:icon="@drawable/electric_bulb"/>
+    <item
+        android:id="@+id/dth_recharge"
+        android:title="DISH TV"
+        android:icon="@drawable/dth_icon"/>
+    <item
+        android:id="@+id/water_bill"
+        android:title="WATER BILL"
+        android:icon="@drawable/water_icon"/>
+
+</menu>

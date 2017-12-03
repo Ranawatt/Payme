@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "227444238610",
+    "firebase_url": "https://payme-157dc.firebaseio.com",
+    "project_id": "payme-157dc",
+    "storage_bucket": "payme-157dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227444238610:android:ae4c74e3fb2528bf",
+        "android_client_info": {
+          "package_name": "com.example.sugandhkumar.payme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227444238610-fkkndbht4evfj2e56ndefco5jt0ibumt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sugandhkumar.payme",
+            "certificate_hash": "7F2795E089925ADBE6354D1B590A6CBFAB971359"
+          }
+        },
+        {
+          "client_id": "227444238610-rbqhldon4k2f1d3im1i5jrrsbc40qul7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOagmJaijah0Zqc9xpcbe-eCB7ndKzcXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227444238610-rbqhldon4k2f1d3im1i5jrrsbc40qul7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

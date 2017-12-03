@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/item1" android:title="Aircel"/>
+    <item android:id="@+id/item2" android:title="Airtel"/>
+    <item android:id="@+id/item3" android:title="BSNL"/>
+    <item android:id="@+id/item4" android:title="Idea"/>
+    <item android:id="@+id/item5" android:title="MTNL"/>
+    <item android:id="@+id/item6" android:title="MTS"/>
+    <item android:id="@+id/item7" android:title="Reliance CDMA"/>
+    <item android:id="@+id/item8" android:title="Reliance GSM"/>
+    <item android:id="@+id/item9" android:title="T24"/>
+    <item android:id="@+id/item10" android:title="TATA Docomo"/>
+    <item android:id="@+id/item11" android:title="Telenor"/>
+    <item android:id="@+id/item12" android:title="Uninor"/>
+    <item android:id="@+id/item13" android:title="Videocon"/>
+    <item android:id="@+id/item14" android:title="vodafone"/>
+
+</menu>
