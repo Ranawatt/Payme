@@ -7,8 +7,10 @@
         android:layout_height="wrap_content"
         android:text="This is a HeaderView"
         android:id="@+id/idTitle"
-        style="@android:style/TextAppearance.Large"
-        android:padding="@dimen/dimen_16"
-        android:paddingLeft="@dimen/dimen_6"/>
+        android:textColor="@color/btm_nav_color"
+        android:textSize="@dimen/text_20"
+        android:paddingTop="@dimen/dimen_16"
+        android:paddingLeft="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_4"/>
 
 </LinearLayout>

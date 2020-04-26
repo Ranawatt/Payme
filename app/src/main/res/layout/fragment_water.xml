@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_40">
@@ -12,9 +12,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/etWaterBoard"
             android:hint="Board"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
@@ -22,21 +22,26 @@
             android:layout_height="wrap_content"
             android:hint="Consumer Number/RR No."
             android:id="@+id/etConsumerNumber"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.v7.widget.ButtonBarLayout
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/fastForward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_amount"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="@dimen/dimen_1"
+        android:text=">> Fast Forward" />
+
+    <Button
+        android:id="@+id/btnBill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_30"
-        android:padding="@dimen/dimen_30">
-        <Button
-            android:id="@+id/btnBill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/get_bill"
-            android:elevation="@dimen/dimen_6"
-            android:background="@color/colorAccent"/>
-    </android.support.v7.widget.ButtonBarLayout>
+        android:text="@string/get_bill"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_6"
+        android:textColor="@color/color_white"
+        android:background="@color/colorAccent"/>
 
 
     <LinearLayout
@@ -44,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/dimen_30">
+        android:layout_marginTop="@dimen/dimen_20">
 
         <Button
             android:id="@+id/btn_offer"

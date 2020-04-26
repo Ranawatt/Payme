@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/dimen_100"
+    android:layout_height="@dimen/dimen_80"
+    android:background="@color/color_white"
+    android:padding="@dimen/dimen_1">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_navmenu"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_80"
+        app:cardElevation="@dimen/dimen_4"
+        app:cardBackgroundColor="@color/color_white"
+        app:cardCornerRadius="@dimen/dimen_8">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_60"
+            android:id="@+id/img_navmenu"
+            android:src="@drawable/belize" />
+
+        <TextView
+            android:id="@+id/txt_navmenu"
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_16"
+            android:background="@color/color_white"
+            android:textColor="@color/splashBackground"
+            android:text="@string/app_name"
+            android:textSize="@dimen/text_12"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/dimen_60"/>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

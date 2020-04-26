@@ -3,8 +3,8 @@ package com.example.sugandhkumar.payme;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -34,7 +35,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +42,7 @@ import org.json.JSONObject;
 import java.util.Arrays;
 
 public class Main11Activity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
+    private static final String TAG = "Main11Activity.java";
     private EditText editText4,editText5;
     private TextView textView2;
     private Button button3;
@@ -52,9 +53,9 @@ public class Main11Activity extends AppCompatActivity implements View.OnClickLis
     Uri imageuri;
     AccessTokenTracker accessTokenTracker;
     ImageView iv_profile_pic;
-
     GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +71,6 @@ public class Main11Activity extends AppCompatActivity implements View.OnClickLis
         loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends"));
         callbackManager = CallbackManager.Factory.create();
         auth = FirebaseAuth.getInstance();
-
-
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,24 +148,20 @@ public class Main11Activity extends AppCompatActivity implements View.OnClickLis
 
                                     String imageurl = "https://graph.facebook.com/" + id + "/picture?type=large";
 
-                                    Picasso.with(Main11Activity.this).load(imageurl).into(iv_profile_pic);
+                                    Glide.with(Main11Activity.this).load(imageurl).into(iv_profile_pic);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
 
                             }
                         });
-
-
                 Bundle parameters = new Bundle();
                 parameters.putString("fields", "id,name,email,gender, birthday");
                 request.setParameters(parameters);
                 request.executeAsync();
-
-
 /**
  * AccessTokenTracker to manage logout
- */
+ * */
                 accessTokenTracker = new AccessTokenTracker() {
                     @Override
                     protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken,
@@ -179,14 +174,10 @@ public class Main11Activity extends AppCompatActivity implements View.OnClickLis
             }
 
             @Override
-            public void onCancel() {
-
-            }
+            public void onCancel() {}
 
             @Override
-            public void onError(FacebookException error) {
-
-            }
+            public void onError(FacebookException error) {}
         });
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -243,10 +234,8 @@ public class Main11Activity extends AppCompatActivity implements View.OnClickLis
             handleSignInResult(result);
             Intent intent=new Intent(Main11Activity.this,Main3Activity.class);
             startActivity(intent);
-
         }
     }
-
     private void handleSignInResult(GoogleSignInResult result) {
 
         if (result.isSuccess()) {

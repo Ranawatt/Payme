@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.sugandhkumar.payme.Main4Activity">
 
-    <ExpandableListView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_220"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true"
+        android:background="#FFFAF4F5"
+        android:id="@+id/img_beauty1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_beauty"
+            android:foregroundGravity="center"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:src="@drawable/man"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="@dimen/dimen_16"/>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView11"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="@dimen/dimen_220"
+        android:paddingTop="@dimen/dimen_4"
+        app:cardCornerRadius="@dimen/dimen_12"
+        android:elevation="@dimen/dimen_6"
+        android:layout_marginLeft="@dimen/dimen_8"
+        android:layout_marginRight="@dimen/dimen_8"
+        android:fadingEdgeLength="@dimen/dimen_3">
+
+        <ExpandableListView
+            android:id="@+id/listView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dimen_12"
+            android:paddingRight="@dimen/dimen_12"
+            android:divider="@color/white_hint"
+            android:dividerHeight=".2dp"
+            android:indicatorLeft="@dimen/dimen_280"
+            android:scrollIndicators="top"
+            android:scrollbars="none" />
+
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

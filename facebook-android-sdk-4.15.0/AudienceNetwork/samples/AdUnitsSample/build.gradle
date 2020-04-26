@@ -7,19 +7,19 @@ repositories {
 }
 
 dependencies {
-    compile(name: 'AudienceNetwork', ext: 'aar')
-    compile(name: 'DebugSettings', ext: 'aar')
-    compile 'com.android.support:support-v4:21.0.3'
+    implementation(name: 'AudienceNetwork', ext: 'aar')
+    implementation(name: 'DebugSettings', ext: 'aar')
+    implementation 'com.android.support:support-v4:22.2.1'
 }
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 22
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.facebook.samples.AdUnitsSample"
-        minSdkVersion 11
-        targetSdkVersion 20
+        minSdkVersion 18
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         rootProject.ext.variantRelease = false

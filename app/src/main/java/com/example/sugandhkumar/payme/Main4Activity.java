@@ -1,8 +1,9 @@
 package com.example.sugandhkumar.payme;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +16,13 @@ public class Main4Activity extends AppCompatActivity {
     List<String> myChild;
     ExpandableListView expandableListView;
     MobileAdapter myAdapter;
+    private ImageView imgBeauty;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
+        imgBeauty = (ImageView) findViewById(R.id.img_beauty);
         expandableListView = (ExpandableListView) findViewById(R.id.listView11);
         myHeader = getInfo();
         myChild = new ArrayList<String>(myHeader.keySet());

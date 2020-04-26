@@ -1,13 +1,14 @@
 package com.example.sugandhkumar.payme.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
 
-import com.example.sugandhkumar.payme.Main11Activity;
+import com.example.sugandhkumar.payme.Callback;
 import com.example.sugandhkumar.payme.R;
 
 import static android.app.Activity.RESULT_OK;
@@ -39,8 +40,18 @@ public class MobrechargeFragment extends Fragment {
     private static final int REQUEST_CODE_PICK_CONTACTS = 1;
     private Uri uriContact;
     private String contactID;
-    public MobrechargeFragment() {
+    public MobrechargeFragment() {    }
 
+    Callback iCallback;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            iCallback = (Callback) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(rContext.toString()+ "must implement onClickListener");
+        }
     }
     @Nullable
     @Override
@@ -89,9 +100,11 @@ public class MobrechargeFragment extends Fragment {
 //                }
                 String MobileNo = mobileNo.getText().toString().trim();
                 String Operator = opearator.getText().toString().trim();
-                Intent rIntent =  new Intent(getActivity().getApplicationContext(),Main11Activity.class);
-                rIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(rIntent);
+//                Intent rIntent =  new Intent(getActivity().getApplicationContext(),Main11Activity.class);
+//                rIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(rIntent);
+                iCallback.processToPayments();
+
             }
         });
 

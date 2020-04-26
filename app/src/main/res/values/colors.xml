@@ -10,6 +10,8 @@
     <color name="colorPrimaryBanana">#FC05730C</color>
     <color name="colorPrimaryDark">#F7045B4F</color>
     <color name="log_in">#FFBEB3B3</color>
+    <!--<color name="white_hint">#DB918F8F</color>-->
+    <color name="white_hint">#DBB9B6B6</color>
     <color name="coloroutliner">#C7B1E6DB</color>
     <color name="textColorPrimary">#FBE13F0E</color>
     <color name="colorMagenta">#03f5f3f2</color>
@@ -23,7 +25,10 @@
     <!--<color name="log_in">#FF112828</color>-->
     <color name="grey_light">#9e9e9e</color>
     <color name="black_50">#80000000</color>
-    <color name="color_white">#FFFFFFFF</color>
+    <color name="black_30">#58000000</color>
+    <color name="black_25">#30000000</color>
+    <color name="white_75">#DDFFFFFF</color>
+    <color name="color_white">#ffffff</color>
     <color name="color_red">#FBEF0317</color>
     <color name="color_plane">#F109E6B8</color>
     <color name="book_now">#FFD700</color>
@@ -44,6 +49,9 @@
     <color name="dot_light_screen2">#8cf9eb</color>
     <color name="dot_light_screen3">#93c6fd</color>
     <color name="dot_light_screen4">#e4b5fc</color>
+    <!--bottom navigation color-->
+    <color name="btm_nav_color">#FF2F494B</color>
 
 
+    <color name="color">#FFF4F9DD</color>
 </resources>

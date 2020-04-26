@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/appToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimaryDark"
         app:navigationIcon="@drawable/back"
-        app:title="@string/accept"
+        app:title="@string/app_name"
         app:titleTextColor="@android:color/white"
         app:subtitleTextColor="@android:color/secondary_text_dark">
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

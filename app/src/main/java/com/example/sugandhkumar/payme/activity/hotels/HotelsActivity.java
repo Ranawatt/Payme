@@ -2,11 +2,12 @@ package com.example.sugandhkumar.payme.activity.hotels;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import com.example.sugandhkumar.payme.Main2Activity;
@@ -28,11 +29,14 @@ public class HotelsActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
     private List<Hotels> hotelsList;
-    private Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
         setContentView(R.layout.activity_bangalore_hotel);
+        getSupportActionBar().setTitle("Bengaluru Hotels");
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -65,20 +69,6 @@ public class HotelsActivity extends AppCompatActivity {
 
     }
 
-    private void setCustomActionBar() {
-        mToolbar = (Toolbar) findViewById(R.id.appToolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Bengaluru");
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-    }
 
     private HotelsAdapter.OnClickListener onClickListener = new HotelsAdapter.OnClickListener() {
         @Override

@@ -1,74 +1,83 @@
 package com.example.sugandhkumar.payme;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
+import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class GetLocationActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class GetLocationActivity extends AppCompatActivity implements LocationListener {
     TextView tv_city;
-    Location mLastLocation;
-    private GoogleApiClient mGoogleApiClient;
-    private LocationRequest mLocationRequest;
+
     String lat, lon;
+    private LocationManager locationManager;
+    private String provider;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //  requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_hotels);
-        tv_city= (TextView) findViewById(R.id.tv_city);
+        tv_city = (TextView) findViewById(R.id.tv_city);
 
-        buildGoogleApiClient();
+        // Get the location manager
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        // Define the criteria how to select the locatioin provider -> use
+        // default
+        Criteria criteria = new Criteria();
+        provider = locationManager.getBestProvider(criteria, false);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Location location = locationManager.getLastKnownLocation(provider);
+
+        // Initialize the location fields
+        if (location != null) {
+            System.out.println("Provider " + provider + " has been selected.");
+            onLocationChanged(location);
+        } else {
+            lat.concat("Location not available");
+            lon.concat("Location not available");
+        }
     }
 
+    /* Request updates at startup */
     @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-        mLocationRequest = LocationRequest.create();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(60); // Update location every second
+    protected void onResume() {
+        super.onResume();
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-
-
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                mGoogleApiClient);
-        if (mLastLocation != null) {
-            lat = String.valueOf(mLastLocation.getLatitude());
-            lon = String.valueOf(mLastLocation.getLongitude());
-        }
+        locationManager.requestLocationUpdates(provider, 400, 1, this);
     }
 
+    /* Remove the locationlistener updates when Activity is paused */
     @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-        buildGoogleApiClient();
+    protected void onPause() {
+        super.onPause();
+        locationManager.removeUpdates(this);
     }
 
     @Override
@@ -78,28 +87,24 @@ public class GetLocationActivity extends AppCompatActivity implements GoogleApiC
         lon = String.valueOf(location.getLongitude());
         updateCityAndPincode(location.getLatitude(), location.getLongitude());
     }
-
-    synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-
-
-    }
     @Override
-    protected void onStart() {
-        super.onStart();
-        mGoogleApiClient.connect();
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // TODO Auto-generated method stub
+
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mGoogleApiClient.disconnect();
+    public void onProviderEnabled(String provider) {
+        Toast.makeText(this, "Enabled new provider " + provider,
+                Toast.LENGTH_SHORT).show();
+
     }
 
+    @Override
+    public void onProviderDisabled(String provider) {
+        Toast.makeText(this, "Disabled provider " + provider,
+                Toast.LENGTH_SHORT).show();
+    }
 
     public void updateCityAndPincode(double latitude, double longitude) {
         try {
@@ -107,7 +112,7 @@ public class GetLocationActivity extends AppCompatActivity implements GoogleApiC
             List<Address> addresses = gcd.getFromLocation(latitude, longitude, 1);
             if (addresses.size() > 0) {
 
-                tv_city.setText(addresses.get(0).getLocality()+ ", " +addresses.get(0).getCountryName());
+                tv_city.setText( addresses.get(0).getLocality()+ ", " + addresses.get(0).getCountryName());
                 String cityWeather = addresses.get(0).getLocality()+ ", "+addresses.get(0).getCountryName()+", "+addresses.get(0).getLocality();
 
             }

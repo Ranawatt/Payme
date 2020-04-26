@@ -7,6 +7,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/idChild"
         android:padding="@dimen/dimen_16"
+        android:textColor="@color/splashBackground"
         android:layout_marginLeft="@dimen/dimen_16"/>
 
 </LinearLayout>

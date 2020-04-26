@@ -69,7 +69,7 @@ class MobileAdapter extends BaseExpandableListAdapter{
             convertView = inflater.inflate(R.layout.mobile_header,null);
         }
         TextView txt = (TextView)convertView.findViewById(R.id.idTitle);
-        txt.setTypeface(Typeface.SANS_SERIF);
+        txt.setTypeface(Typeface.createFromAsset(mContext.getAssets(),"Clockopia.ttf"));
         txt.setText(title);
         return convertView;
     }
@@ -82,6 +82,7 @@ class MobileAdapter extends BaseExpandableListAdapter{
             convertView = inflater.inflate(R.layout.mobile_childitems,null);
         }
         TextView txt = (TextView) convertView.findViewById(R.id.idChild);
+        txt.setTypeface(Typeface.createFromAsset(mContext.getAssets(),"Pangram-Regular.otf"));
         txt.setText(title);
         return convertView;
     }

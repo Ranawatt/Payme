@@ -20,7 +20,7 @@
         android:layout_alignParentLeft="true"
         android:weightSum="1">
 
-        <android.support.v7.widget.AppCompatRadioButton
+        <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radioButton"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:text="Prepaid"
             android:textColor="@color/colorPrimary" />
 
-        <android.support.v7.widget.AppCompatRadioButton
+        <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_marginTop="58dp"

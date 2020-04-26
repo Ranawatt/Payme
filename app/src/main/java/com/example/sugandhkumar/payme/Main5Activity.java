@@ -2,9 +2,9 @@ package com.example.sugandhkumar.payme;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -43,21 +43,8 @@ public class Main5Activity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 progressDialog.dismiss();
                 for (DataSnapshot objectSnapshot : dataSnapshot.getChildren()){
-//                    JSONObject jObject = new JSONObject();
-//                    Iterator iterator = jObject.keys();
-//                    while (iterator.hasNext()){
-//                        String objKey = (String) iterator.next();
-//                        try {
-//                            JSONObject jsonObject = jObject.getJSONObject(objKey);
-                            Electronics electronics = objectSnapshot.getValue(Electronics.class);
-                            itemList.add(electronics);
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                       String obj= objectSnapshot.getKey();
-//                        Log.d("TAG", String.valueOf(obj));
-//
+                    Electronics electronics = objectSnapshot.getValue(Electronics.class);
+                    itemList.add(electronics);
                 }
                 eAdapter = new ElectronicsAdapter(getApplicationContext(),itemList);
                 eRecyclerView.setAdapter(eAdapter);

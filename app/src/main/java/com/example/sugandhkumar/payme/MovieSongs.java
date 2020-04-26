@@ -4,23 +4,25 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.sugandhkumar.payme.model.Album;
 
 import java.util.ArrayList;
@@ -45,49 +47,49 @@ public class MovieSongs extends AppCompatActivity {
         initCollapsingToolbar();
 
 
-        images = new int[]{
-                R.drawable.cover,R.drawable.cover,R.drawable.cover,R.drawable.cover
-        };
+//        images = new int[]{
+//                R.drawable.cover,R.drawable.cover,R.drawable.cover,R.drawable.cover
+//        };
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view1);
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        dotsLayout = (LinearLayout) findViewById(R.id.layout_Dots);
+//        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+//        dotsLayout = (LinearLayout) findViewById(R.id.layout_Dots);
 
         albumList = new ArrayList<>();
         adapter = new AlbumsAdapter(this,albumList);
 
-        myViewPagerAdapter = new MyViewPagerAdapter();
-        mViewPager.setAdapter(myViewPagerAdapter);
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                addBottomdots(position);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+//        myViewPagerAdapter = new MyViewPagerAdapter();
+//        mViewPager.setAdapter(myViewPagerAdapter);
+//        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                addBottomdots(position);
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(1), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
         prepareAlbums();
 
-        addBottomdots(0);
-//        try {
-//            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+//        addBottomdots(0);
+        try {
+            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void addBottomdots(int currentPage) {

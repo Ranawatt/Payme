@@ -7,8 +7,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -133,7 +133,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
 //                            Hotels hotels = new Hotels(etName.getText().toString().trim(),taskSnapshot.getDownloadUrl().toString(),etCost.getText().toString().trim(),
 //                                    etRemarks.getText().toString().trim(),etDistance.getText().toString().trim(),etRatingPoint.getText().toString().trim());
-                            Hotels hotels =  new Hotels(taskSnapshot.getDownloadUrl().toString());
+                            Hotels hotels =  new Hotels(taskSnapshot.getUploadSessionUri().toString());
                             String hotelsId = databaseReference.push().getKey();
                             databaseReference.child(hotelsId).setValue(hotels);
                         }

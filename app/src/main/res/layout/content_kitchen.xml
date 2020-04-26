@@ -3,10 +3,10 @@
     xmlns:card_kitchen="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/color_white">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_kitchen"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_250"
         android:background="@color/color_white"
@@ -17,6 +17,7 @@
             android:id="@+id/ivKitchenImage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_200"
+            android:background="@color/white_75"
             android:src="@drawable/living_room"/>
 
         <LinearLayout
@@ -35,8 +36,7 @@
                     android:id="@+id/tvItemName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/card_kitchen"
-                    android:textColor="@color/wallet_hint_foreground_holo_dark" />
+                    android:textColor="@color/design_default_color_primary" />
 
                 <TextView
                     android:id="@+id/tvItemCost"
@@ -58,7 +58,7 @@
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:accessibilityLiveRegion="@integer/mr_controller_volume_group_list_fade_out_duration_ms"
+                    android:accessibilityLiveRegion="polite"
                     android:scaleX="0.8"
                     android:scaleY="0.8" />
 
@@ -72,5 +72,5 @@
                     android:textSize="@dimen/text_12" />
             </LinearLayout>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

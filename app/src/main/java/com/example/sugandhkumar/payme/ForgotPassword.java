@@ -1,11 +1,12 @@
 package com.example.sugandhkumar.payme;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ForgotPassword extends AppCompatActivity {
-    View email;
+    private EditText email;
     Button submit,btnBack;
     static String getemail;
     FirebaseAuth auth;
@@ -41,7 +42,7 @@ public class ForgotPassword extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getemail=email.getContext().toString().trim();
+                getemail=email.getText().toString().trim();
                 if (!TextUtils.isEmpty(getemail)){
                    //validateMail(getemail);
                     progressBar.setVisibility(View.VISIBLE);

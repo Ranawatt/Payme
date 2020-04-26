@@ -5,18 +5,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/viewBg"
+    android:background="@color/color_white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.sugandhkumar.payme.MovieSongs"
     tools:showIn="@layout/activity_movie_songs">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view1"
         android:clipToPadding="false"
         android:scrollbars="vertical" >
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

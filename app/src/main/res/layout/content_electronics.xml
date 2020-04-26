@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/color_white">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50"
         android:layout_marginTop="@dimen/dimen_8"
@@ -23,6 +23,6 @@
             android:textColor="@color/color_white"
             style="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
             android:textAlignment="center" />
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

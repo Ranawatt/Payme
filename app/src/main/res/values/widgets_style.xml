@@ -2,7 +2,8 @@
 <resources>
     <style name="AppTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabGravity">fill</item>
-        <item name="tabIndicatorColor">@color/colorAccent</item>
+        <item name="tabIndicatorColor">@color/colorSky</item>
+        <item name="tabMode">scrollable</item>
         <item name="tabIndicatorHeight">4dp</item>
         <item name="tabMaxWidth">0dp</item>
         <item name="tabPaddingStart">6dp</item>

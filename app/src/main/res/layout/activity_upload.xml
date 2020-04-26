@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sugandhkumar.payme.UploadActivity">
+    tools:context="com.example.sugandhkumar.payme.activity.UploadActivity">
 
     <Button
         android:id="@+id/btnChoose"
@@ -12,38 +13,41 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Choose"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnChoose"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:layout_toStartOf="@+id/etCost" />
+        app:layout_constraintEnd_toStartOf="@+id/etCost"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChoose" />
 
     <EditText
         android:id="@+id/etCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="214dp"
+        android:layout_height="54dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="stay cost"
-        android:layout_below="@+id/btnChoose"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/btnChoose" />
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnChoose"
+        app:layout_constraintTop_toBottomOf="@+id/btnChoose" />
 
     <ImageView
         android:id="@+id/ivSelected"
         android:layout_width="wrap_content"
         android:layout_height="320dp"
-        app:srcCompat="@drawable/album10"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/album10" />
 
     <Button
         android:id="@+id/btnUpload"
@@ -51,49 +55,51 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Upload"
-        android:layout_below="@+id/ivSelected"
-        android:layout_toStartOf="@+id/etCost" />
+        app:layout_constraintEnd_toStartOf="@+id/etCost"
+        app:layout_constraintTop_toBottomOf="@+id/ivSelected" />
 
     <TextView
         android:id="@+id/tvShowUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnUpload"
-        android:layout_below="@+id/btnUpload"
         android:layout_marginTop="10dp"
         android:text="View Upload"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
-        android:layout_alignStart="@+id/btnUpload" />
+        app:layout_constraintEnd_toEndOf="@+id/btnUpload"
+        app:layout_constraintStart_toStartOf="@+id/btnUpload"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpload" />
 
     <EditText
         android:id="@+id/etRemarks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvShowUpload"
+        android:layout_marginBottom="10dp"
+        android:hint="Remarks"
         android:inputType="textPersonName"
         android:textAllCaps="true"
-        android:hint="Remarks"
-        android:layout_alignParentStart="true" />
+        app:layout_constraintBottom_toTopOf="@+id/tvShowUpload"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etRatingPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:ems="6"
         android:hint="RatingPoint"
         android:inputType="numberDecimal"
-        android:layout_above="@+id/tvShowUpload"
-        android:layout_alignParentEnd="true" />
+        app:layout_constraintBottom_toTopOf="@+id/tvShowUpload"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/etDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:ems="6"
         android:hint="Distance"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

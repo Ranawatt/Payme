@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/dimen_3">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_40">
@@ -16,29 +16,35 @@
             android:id="@+id/dthOperator"
             android:inputType="textPersonName"
             android:textColor="@color/cardview_dark_background"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_8">
+        android:layout_height="wrap_content">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/smartcard"
             android:hint="Smart Card Number"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_8">
+        android:layout_height="wrap_content">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/amnt"
             android:hint="Amount"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/fastForward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="@dimen/dimen_1"
+        android:text=">> Fast Forward" />
 
     <Button
         android:id="@+id/btnPayment"
@@ -47,7 +53,7 @@
         android:padding="@dimen/dimen_12"
         android:layout_marginLeft="@dimen/dimen_30"
         android:layout_marginRight="@dimen/dimen_30"
-        android:layout_marginTop="@dimen/dimen_50"
+        android:layout_marginTop="@dimen/dimen_20"
         android:elevation="@dimen/dimen_8"
         android:text="@string/rech_Payment"
         android:textSize="@dimen/text_20"
@@ -58,7 +64,7 @@
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_50"
+        android:layout_marginTop="@dimen/dimen_16"
         android:orientation="horizontal">
 
         <Button
