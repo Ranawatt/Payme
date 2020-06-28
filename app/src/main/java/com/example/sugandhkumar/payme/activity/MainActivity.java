@@ -460,7 +460,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 "<p>A lightweight, opensource instant payment app.</p>" +
                 "<p>Developed by <a href='mailto:sugandhpatna95@gmail.com'>Sugandh Ranawatt</a></p>" +
                 "<p>Data provided by <a href='http://firebase.org/'>Fire Base</a>, under the <a href='http://creativecommons.org/licenses/by-sa/2.0/'>Creative Commons license</a>" +
-                "<p>Every Icons are <a href='https://www.github.com/Ranawatt/'>Designed Icons</a>, by <a href='http://www.twitter.com/artill'>Lukas Bischoff</a> and <a href='http://www.twitter.com/Erik_UX'>Erik Flowers</a>, under the <a href='http://scripts.sil.org/OFL'>SIL OFL 1.1</a> licence.";
+                "<p>Every Icons are <a href='https://www.github.com/Ranawatt/'>Designed Icons</a>, by <a href='http://www.twitter.com/artill'>Lukas Bischoff</a> " +
+                "and <a href='http://www.twitter.com/Erik_UX'>Erik Flowers</a>, under the <a href='http://scripts.sil.org/OFL'>SIL OFL 1.1</a> licence.";
         TypedArray ta = obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary, R.attr.colorAccent});
         String textColor = String.format("#%06X", (0xFFFFFF & ta.getColor(0, Color.BLACK)));
         String accentColor = String.format("#%06X", (0xFFFFFF & ta.getColor(1, Color.BLUE)));

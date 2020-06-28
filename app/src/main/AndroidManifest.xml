@@ -58,7 +58,7 @@
         android:fullBackupContent="@xml/backup_descriptor">
         <activity
             android:name=".activity.IntroductionActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullUser"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,7 +68,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -97,7 +97,7 @@
             android:name=".Main11Activity"
             android:label="LogIn to Payme "
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullUser" />
         <activity
             android:name=".Main4Activity"
             android:label="Select Item"
@@ -124,10 +124,7 @@
             android:label="HitSongs"
             android:parentActivityName=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!-- <activity -->
-        <!-- android:name=".ScrollingActivity" -->
-        <!-- android:label="@string/title_activity_scrolling" -->
-        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+
         <activity
             android:name=".GetLocationActivity"
             android:label="Searching" />
@@ -157,12 +154,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.hotels.HotelsActivity"
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullUser" />
 
 
         <service android:name=".service.PaymeMessagingService">

@@ -2,8 +2,12 @@ package com.example.sugandhkumar.payme;
 
 import android.content.Intent;
 import android.content.res.Resources;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Build;
 import android.os.Bundle;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,6 +37,7 @@ public class Main6Activity extends AppCompatActivity {
     private DatabaseReference mDatabase, mDatabaseHotels;
     private List<Hotels> hotelLists;
     private List<Kitchen> kitchenLists;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +46,9 @@ public class Main6Activity extends AppCompatActivity {
         initView();
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(R.color.colorAccent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.setStatusBarColor(getResources().getColor(R.color.colorAccent, getTheme()));
+        }
         recyclerMen.setHasFixedSize(true);
         recyclerMen2.setHasFixedSize(true);
         recyclerMen2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
