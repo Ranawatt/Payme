@@ -110,10 +110,6 @@
             android:name=".Main6Activity"
             android:parentActivityName=".activity.MainActivity" />
         <activity
-            android:name=".Main7Activity"
-            android:label="Select Item"
-            android:parentActivityName=".activity.MainActivity" />
-        <activity
             android:name=".ForgotPassword"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -50,29 +50,6 @@ public class Main2Activity extends AppCompatActivity {
         }
     }
 
-//    private void retrieveContactPhoto() {
-//
-//        Bitmap photo = null;
-//
-//        try {
-//            InputStream inputStream = ContactsContract.Contacts.openContactPhotoInputStream(getContentResolver(),
-//                    ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, new Long(contactID)));
-//
-//            if (inputStream != null) {
-//                photo = BitmapFactory.decodeStream(inputStream);
-//                ImageView imageView = (ImageView) findViewById(R.id.img_contact);
-//                imageView.setImageBitmap(photo);
-//            }
-//
-//            assert inputStream != null;
-//            inputStream.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-
     private void retrieveContactNumber() {
 
         String contactNumber = null;

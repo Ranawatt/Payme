@@ -50,7 +50,6 @@ import com.example.sugandhkumar.payme.Main2Activity;
 import com.example.sugandhkumar.payme.Main4Activity;
 import com.example.sugandhkumar.payme.Main5Activity;
 import com.example.sugandhkumar.payme.Main6Activity;
-import com.example.sugandhkumar.payme.Main7Activity;
 import com.example.sugandhkumar.payme.MovieSongs;
 import com.example.sugandhkumar.payme.R;
 import com.example.sugandhkumar.payme.activity.hotels.HotelsActivity;
@@ -404,7 +403,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.fashion) {
             startActivity(new Intent(MainActivity.this, Main6Activity.class));
         } else if (id == R.id.wfashion) {
-            startActivity(new Intent(MainActivity.this, Main7Activity.class));
         } else if (id == R.id.baby) {
             startActivity(new Intent(MainActivity.this, GetLocationActivity.class));
         } else if (id == R.id.home) {
@@ -493,7 +491,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(name.equals("MEN")){
                 startActivity(new Intent(MainActivity.this,Main6Activity.class));
             }else if (name.equals("WOMEN")){
-                startActivity(new Intent(MainActivity.this,Main7Activity.class));
             }else if (name.equals("BEAUTY")){
                 startActivity(new Intent(MainActivity.this,Main4Activity.class));
             }else if (name.equals("KIDS")){
