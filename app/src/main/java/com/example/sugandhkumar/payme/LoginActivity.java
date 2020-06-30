@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -62,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         }
         setContentView(R.layout.activity_login);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         initViews();
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -103,8 +105,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        welcome_txt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Clockopia.ttf"));
-        forgot_txt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Regular.otf"));
+        welcome_txt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Regular.otf"));
+        forgot_txt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Medium.otf"));
         welcome_sbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Light.otf"));
         forgot_sbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Clockopia.ttf"));
     }

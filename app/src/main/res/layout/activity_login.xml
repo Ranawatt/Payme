@@ -9,10 +9,10 @@
 
     <include layout="@layout/video_background"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scrollbars="none">-->
 
         <LinearLayout
             android:id="@+id/llLogin"
@@ -30,8 +30,8 @@
                 android:layout_width="@dimen/logo_w_h"
                 android:layout_height="@dimen/logo_w_h"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dimen_16"
-                android:layout_marginBottom="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_50"
+                android:layout_marginBottom="@dimen/dimen_16"
                 android:src="@drawable/belize" />
 
             <TextView
@@ -48,12 +48,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/welcome_note"
                 android:textColor="@color/white_75"
-                android:layout_marginTop="@dimen/dimen_3"
-                />
+                android:layout_marginTop="@dimen/dimen_6" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:baselineAligned="true"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/dimen_16"
                 android:layout_marginBottom="@dimen/dimen_8">
 
@@ -193,8 +194,8 @@
                         android:background="@drawable/btn_background"
                         android:text="@string/action_sign_in_short"
                         android:layout_marginLeft="@dimen/dimen_12"
-                        android:textColor="#ffffffff" />
-                    <!--android:backgroundTint="@color/black_25"-->
+                        android:textColor="#ffffffff"/>
+<!--                        android:backgroundTint="@color/black_50"/>-->
                 </LinearLayout>
             </LinearLayout>
 
@@ -322,7 +323,7 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+<!--    </ScrollView>-->
 
     <LinearLayout
         android:id="@+id/llForgot"
