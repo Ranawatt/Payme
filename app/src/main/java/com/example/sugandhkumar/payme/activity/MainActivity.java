@@ -292,12 +292,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        Log.d(TAG, "onActivityResult: requestCode: "+requestCode);
-        Log.d(TAG, "onActivityResult: resultCode: "+resultCode);
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: requestCode: " + requestCode);
+        Log.d(TAG, "onActivityResult: resultCode: " + resultCode);
         //txnId=UPI20b6226edaef4c139ed7cc38710095a3&responseCode=00&ApprovalRefNo=null&Status=SUCCESS&txnRef=undefined
         //txnId=UPI608f070ee644467aa78d1ccf5c9ce39b&responseCode=ZM&ApprovalRefNo=null&Status=FAILURE&txnRef=undefined
-        if(data!=null) {
+        if (data != null) {
             Log.d(TAG, "onActivityResult: data: " + data.getStringExtra("response"));
             String res = data.getStringExtra("response");
             String search = "SUCCESS";
