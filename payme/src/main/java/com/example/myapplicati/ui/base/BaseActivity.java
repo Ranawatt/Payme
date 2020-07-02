@@ -1,5 +1,23 @@
 package com.example.myapplicati.ui.base;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.myapplicati.R;
+import com.example.myapplicati.ui.login.LoginActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public abstract class BaseActivity extends AppCompatActivity {
     private static ApiClient mApi;
 
