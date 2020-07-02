@@ -30,9 +30,9 @@
     <output-test url="file://$MODULE_DIR$/../../../payme/build/intermediates/javac/devDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../payme">
-      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/ap_generated_sources/devDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/aidl_source_output_dir/devDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/source/buildConfig/dev/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/ap_generated_sources/devDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/renderscript_source_output_dir/devDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/res/rs/dev/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/res" type="java-resource" />
@@ -42,8 +42,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/ap_generated_sources/devDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/aidl_source_output_dir/devDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/ap_generated_sources/devDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/source/buildConfig/androidTest/dev/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/renderscript_source_output_dir/devDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/res/rs/androidTest/dev/debug" type="java-test-resource" generated="true" />
