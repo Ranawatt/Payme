@@ -1,8 +1,17 @@
 package com.example.myapplicati.ui.paytm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.myapplicati.R;
+import com.example.myapplicati.db.model.User;
+import com.example.myapplicati.ui.base.BaseActivity;
+import com.wang.avi.AVLoadingIndicatorView;
+
+import butterknife.BindView;
+import io.realm.Realm;
 
 public class PayTMActivity extends BaseActivity {
     @BindView(R.id.lbl_status)
