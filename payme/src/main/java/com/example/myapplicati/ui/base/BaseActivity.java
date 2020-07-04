@@ -130,6 +130,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    protected abstract void setSupportActionBar(Toolbar toolbar);
+
     public void hideToolbar() {
         appBar.setVisibility(View.GONE);
     }

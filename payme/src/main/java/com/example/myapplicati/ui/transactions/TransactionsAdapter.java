@@ -1,5 +1,26 @@
 package com.example.myapplicati.ui.transactions;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplicati.R;
+import com.example.myapplicati.db.model.Transaction;
+import com.example.myapplicati.helper.Constants;
+import com.example.myapplicati.helper.Utils;
+import com.example.myapplicati.ui.custom.OrderItemsListView;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapter.ViewHolder> {
     private List<Transaction> transactions;
     private Context context;

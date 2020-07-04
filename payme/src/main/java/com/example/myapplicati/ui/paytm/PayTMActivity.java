@@ -1,17 +1,48 @@
 package com.example.myapplicati.ui.paytm;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
+import com.example.myapplicati.BuildConfig;
 import com.example.myapplicati.R;
+import com.example.myapplicati.db.AppDatabase;
+import com.example.myapplicati.db.model.CartItem;
 import com.example.myapplicati.db.model.User;
+import com.example.myapplicati.helper.Constants;
+import com.example.myapplicati.networking.model.AppConfig;
+import com.example.myapplicati.networking.model.ChecksumResponse;
+import com.example.myapplicati.networking.model.Order;
+import com.example.myapplicati.networking.model.OrderItem;
+import com.example.myapplicati.networking.model.PrepareOrderRequest;
+import com.example.myapplicati.networking.model.PrepareOrderResponse;
 import com.example.myapplicati.ui.base.BaseActivity;
+import com.example.myapplicati.ui.transactions.TransactionsActivity;
+import com.paytm.pgsdk.PaytmOrder;
+import com.paytm.pgsdk.PaytmPGService;
+import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.realm.Realm;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import timber.log.Timber;
 
 public class PayTMActivity extends BaseActivity {
     @BindView(R.id.lbl_status)
@@ -302,7 +333,7 @@ public class PayTMActivity extends BaseActivity {
             // as the order placed successfully, clear the cart
             AppDatabase.clearCart();
         } else {
-            iconStatus.setImageResource(R.drawable.baseline_close_black_48);
+            iconStatus.setImageResource(R.drawable.baseline_close_black_24);
             iconStatus.setColorFilter(ContextCompat.getColor(this, R.color.btn_remove_item));
             responseTitle.setText(R.string.order_failed);
             statusMessage.setText(R.string.msg_order_placed_failed);

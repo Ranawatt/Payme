@@ -1,10 +1,32 @@
 package com.example.myapplicati.ui.register;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.myapplicati.R;
+import com.example.myapplicati.db.AppDatabase;
+import com.example.myapplicati.db.AppPref;
+import com.example.myapplicati.db.model.User;
+import com.example.myapplicati.networking.model.RegisterRequest;
+import com.example.myapplicati.ui.base.BaseActivity;
+import com.example.myapplicati.ui.login.LoginActivity;
+import com.wang.avi.AVLoadingIndicatorView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.text.TextUtils.*;
 
 public class RegisterActivity extends BaseActivity {
     @BindView(R.id.input_name)
@@ -40,7 +62,7 @@ public class RegisterActivity extends BaseActivity {
         String email = inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+        if (isEmpty(name) || isEmpty(email) || isEmpty(password)) {
             Toast.makeText(getApplicationContext(), getString(R.string.msg_fill_the_form), Toast.LENGTH_LONG).show();
             return;
         }

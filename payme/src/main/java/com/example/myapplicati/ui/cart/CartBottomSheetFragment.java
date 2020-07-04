@@ -57,7 +57,7 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
         dialog.setOnShowListener(dialog1 -> {
             BottomSheetDialog d = (BottomSheetDialog) dialog1;
 
-            FrameLayout bottomSheet = d.findViewById(android.support.design.R.id.design_bottom_sheet);
+            FrameLayout bottomSheet = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
             BottomSheetBehavior.from(bottomSheet).setState(BottomSheetBehavior.STATE_EXPANDED);
         });
         return dialog;
