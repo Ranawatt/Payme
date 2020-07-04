@@ -1,9 +1,37 @@
 package com.example.myapplicati.ui.main;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toolbar;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myapplicati.R;
+import com.example.myapplicati.db.AppDatabase;
+import com.example.myapplicati.db.AppPref;
+import com.example.myapplicati.db.model.CartItem;
+import com.example.myapplicati.helper.GridSpacingItemDecoration;
+import com.example.myapplicati.helper.Utils;
+import com.example.myapplicati.networking.model.Product;
 import com.example.myapplicati.ui.base.BaseActivity;
+import com.example.myapplicati.ui.cart.CartBottomSheetFragment;
+import com.example.myapplicati.ui.login.LoginActivity;
+import com.example.myapplicati.ui.transactions.TransactionsActivity;
+import com.example.myapplicati.ui.views.CartInfoBar;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.realm.Realm;
+import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
+import timber.log.Timber;
 
 public class MainActivity extends BaseActivity implements ProductsAdapter.ProductsAdapterListener {
     @BindView(R.id.recycler_view)

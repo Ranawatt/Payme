@@ -2,7 +2,13 @@ package com.example.myapplicati;
 
 import android.app.Application;
 
-class MyApplication extends Application {
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import timber.log.Timber;
+
+import static com.example.myapplicati.helper.Constants.DB_NAME;
+
+public class MyApplication extends Application {
     private static MyApplication mInstance;
 
     @Override

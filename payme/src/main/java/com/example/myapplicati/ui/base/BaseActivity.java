@@ -1,22 +1,41 @@
 package com.example.myapplicati.ui.base;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.Toolbar;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.myapplicati.R;
+import com.example.myapplicati.db.AppDatabase;
+import com.example.myapplicati.db.model.User;
+import com.example.myapplicati.networking.ApiClient;
+import com.example.myapplicati.networking.ApiService;
+import com.example.myapplicati.networking.model.ErrorResponse;
 import com.example.myapplicati.ui.login.LoginActivity;
+import com.example.myapplicati.ui.splash.SplashActivity;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static ApiClient mApi;

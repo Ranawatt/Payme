@@ -1,5 +1,23 @@
 package com.example.myapplicati.ui.main;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.example.myapplicati.R;
+import com.example.myapplicati.db.model.CartItem;
+import com.example.myapplicati.networking.model.Product;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.realm.RealmResults;
+
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyViewHolder> {
 
     private Context context;
@@ -52,7 +70,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         Product product = products.get(position);
         holder.name.setText(product.name);
         holder.price.setText(context.getString(R.string.price_with_currency, product.price));
-        GlideApp.with(context).load(product.imageUrl).into(holder.thumbnail);
+        Glide.with(context).load(product.imageUrl).into(holder.thumbnail);
 
         holder.icAdd.setOnClickListener(view -> {
             listener.onProductAddedCart(position, product);

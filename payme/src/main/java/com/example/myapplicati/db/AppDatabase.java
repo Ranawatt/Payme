@@ -1,6 +1,14 @@
 package com.example.myapplicati.db;
 
+import com.example.myapplicati.db.model.CartItem;
 import com.example.myapplicati.db.model.User;
+import com.example.myapplicati.networking.model.AppConfig;
+import com.example.myapplicati.networking.model.Product;
+
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class AppDatabase {
     public AppDatabase() {

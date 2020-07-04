@@ -8,8 +8,10 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 
 import com.example.myapplicati.R;
+import com.example.myapplicati.networking.model.OrderItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
