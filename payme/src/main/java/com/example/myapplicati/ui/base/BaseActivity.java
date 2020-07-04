@@ -3,7 +3,7 @@ package com.example.myapplicati.ui.base;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,11 +12,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import android.widget.Toolbar;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.databinding.DataBindingUtil;
 
@@ -26,7 +25,6 @@ import com.example.myapplicati.db.model.User;
 import com.example.myapplicati.networking.ApiClient;
 import com.example.myapplicati.networking.ApiService;
 import com.example.myapplicati.networking.model.ErrorResponse;
-import com.example.myapplicati.ui.login.LoginActivity;
 import com.example.myapplicati.ui.splash.SplashActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.gson.Gson;
@@ -37,7 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.ResponseBody;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends Activity {
     private static ApiClient mApi;
 
     @BindView(R.id.progress_bar)
@@ -127,17 +125,17 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void setToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
     }
 
-    protected abstract void setSupportActionBar(Toolbar toolbar);
+
 
     public void hideToolbar() {
         appBar.setVisibility(View.GONE);
     }
 
     public void changeStatusBarColor() {
-        changeStatusBarColor(Color.WHITE);
+//        changeStatusBarColor(Color.WHITE);
     }
 
     public void changeStatusBarColor(int color) {
@@ -148,7 +146,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            window.setStatusBarColor(color);
+//            window.setStatusBarColor(color);
         }
     }
 
@@ -159,9 +157,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void enableToolbarUpNavigation() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        }
     }
 
     public void launchSplash(Activity activity) {
@@ -172,7 +170,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void launchLogin(Activity activity) {
-        Intent intent = new Intent(activity, LoginActivity.class);
+        Intent intent = new Intent(activity, SplashActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
@@ -181,7 +179,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void checkSession(Activity activity) {
         User user = AppDatabase.getUser();
         if (user == null) {
-            Intent intent = new Intent(activity, LoginActivity.class);
+            Intent intent = new Intent(activity, SplashActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }

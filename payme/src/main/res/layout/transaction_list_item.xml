@@ -28,7 +28,7 @@
         android:textSize="10sp"
         android:textStyle="normal" />
 
-    <info.androidhive.paytmgateway.ui.custom.OrderItemsListView
+    <com.example.myapplicati.ui.custom.OrderItemsListView
         android:id="@+id/order_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

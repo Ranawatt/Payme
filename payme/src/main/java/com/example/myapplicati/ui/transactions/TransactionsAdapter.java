@@ -40,24 +40,24 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         Transaction transaction = transactions.get(position);
-        if (transaction.order != null) {
-            viewHolder.orderId.setText(context.getString(R.string.order_id, transaction.order.id));
-            viewHolder.orderItems.setOrderItems(transaction.order.orderItems);
-
-            if (transaction.order.status.equalsIgnoreCase(Constants.ORDER_STATUS_COMPLETED)) {
-                // order is placed
-                viewHolder.orderStatus.setText(context.getString(R.string.order_placed));
-                viewHolder.orderStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.colorGreen));
-            } else {
-                // order failed
-                viewHolder.orderStatus.setText(context.getString(R.string.transaction_failed));
-                viewHolder.orderStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.red_dull));
-            }
-
-            viewHolder.price.setText(context.getString(R.string.total_price_with_currency_string, transaction.order.amount));
-        }
-
-        viewHolder.timestamp.setText(Utils.getOrderTimestamp(transaction.created_at));
+//        if (transaction.order != null) {
+//            viewHolder.orderId.setText(context.getString(R.string.order_id, transaction.order.id));
+//            viewHolder.orderItems.setOrderItems(transaction.order.orderItems);
+//
+//            if (transaction.order.status.equalsIgnoreCase(Constants.ORDER_STATUS_COMPLETED)) {
+//                // order is placed
+//                viewHolder.orderStatus.setText(context.getString(R.string.order_placed));
+//                viewHolder.orderStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.colorGreen));
+//            } else {
+//                // order failed
+//                viewHolder.orderStatus.setText(context.getString(R.string.transaction_failed));
+//                viewHolder.orderStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.red_dull));
+//            }
+//
+//            viewHolder.price.setText(context.getString(R.string.total_price_with_currency_string, transaction.order.amount));
+//        }
+//
+//        viewHolder.timestamp.setText(Utils.getOrderTimestamp(transaction.created_at));
     }
 
     @Override

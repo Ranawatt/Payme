@@ -7,8 +7,9 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toolbar;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +23,7 @@ import com.example.myapplicati.helper.Utils;
 import com.example.myapplicati.networking.model.Product;
 import com.example.myapplicati.ui.base.BaseActivity;
 import com.example.myapplicati.ui.cart.CartBottomSheetFragment;
-import com.example.myapplicati.ui.login.LoginActivity;
+import com.example.myapplicati.ui.splash.SplashActivity;
 import com.example.myapplicati.ui.transactions.TransactionsActivity;
 import com.example.myapplicati.ui.views.CartInfoBar;
 
@@ -33,7 +34,7 @@ import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 import timber.log.Timber;
 
-public class MainActivity extends BaseActivity implements ProductsAdapter.ProductsAdapterListener {
+public class MainActivity extends AppCompatActivity implements ProductsAdapter.ProductsAdapterListener {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
@@ -50,9 +51,9 @@ public class MainActivity extends BaseActivity implements ProductsAdapter.Produc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        changeStatusBarColor();
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        changeStatusBarColor();
 
         init();
         renderProducts();
@@ -71,11 +72,6 @@ public class MainActivity extends BaseActivity implements ProductsAdapter.Produc
 
             mAdapter.setCartItems(cartItems);
         };
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
     }
 
     private void setCartInfoBar(RealmResults<CartItem> cartItems) {
@@ -131,7 +127,7 @@ public class MainActivity extends BaseActivity implements ProductsAdapter.Produc
     }
 
     private void launchLogin() {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        Intent intent = new Intent(MainActivity.this, SplashActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
@@ -180,7 +176,7 @@ public class MainActivity extends BaseActivity implements ProductsAdapter.Produc
     @Override
     protected void onResume() {
         super.onResume();
-        checkSession(MainActivity.this);
+//        checkSession(MainActivity.this);
         if (cartItems != null) {
             cartItems.addChangeListener(cartRealmChangeListener);
         }

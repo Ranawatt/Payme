@@ -40,8 +40,8 @@ public class TransactionsActivity extends BaseActivity {
         setContentView(R.layout.activity_transactions);
         ButterKnife.bind(this);
         setToolbar();
-        changeStatusBarColor();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        changeStatusBarColor();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
 

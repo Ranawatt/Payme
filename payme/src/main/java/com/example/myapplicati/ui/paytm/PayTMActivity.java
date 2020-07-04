@@ -90,9 +90,9 @@ public class PayTMActivity extends BaseActivity {
         setContentView(R.layout.activity_pay_tm);
         ButterKnife.bind(this);
         setToolbar();
-        enableToolbarUpNavigation();
-        getSupportActionBar().setTitle(getString(R.string.title_preparing_order));
-        changeStatusBarColor();
+//        enableToolbarUpNavigation();
+//        getSupportActionBar().setTitle(getString(R.string.title_preparing_order));
+//        changeStatusBarColor();
         init();
     }
 
@@ -326,7 +326,7 @@ public class PayTMActivity extends BaseActivity {
         lblStatus.setVisibility(View.GONE);
         if (isSuccess) {
             iconStatus.setImageResource(R.drawable.baseline_check_black_48);
-            iconStatus.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen));
+//            iconStatus.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen));
             responseTitle.setText(R.string.thank_you);
             statusMessage.setText(R.string.msg_order_placed_successfully);
 
@@ -334,7 +334,7 @@ public class PayTMActivity extends BaseActivity {
             AppDatabase.clearCart();
         } else {
             iconStatus.setImageResource(R.drawable.baseline_close_black_24);
-            iconStatus.setColorFilter(ContextCompat.getColor(this, R.color.btn_remove_item));
+//            iconStatus.setColorFilter(ContextCompat.getColor(this, R.color.btn_remove_item));
             responseTitle.setText(R.string.order_failed);
             statusMessage.setText(R.string.msg_order_placed_failed);
         }
