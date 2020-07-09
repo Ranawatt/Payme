@@ -9,6 +9,6 @@ public class Transaction extends RealmObject {
 
     @PrimaryKey
     int id;
-//    public Order order;
-//    public String created_at;
+    public Order order;
+    public String created_at;
 }
