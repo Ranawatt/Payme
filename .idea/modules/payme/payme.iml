@@ -31,8 +31,8 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../payme">
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/ap_generated_sources/devDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/source/buildConfig/dev/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/aidl_source_output_dir/devDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/source/buildConfig/dev/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/renderscript_source_output_dir/devDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/res/rs/dev/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/res" type="java-resource" />
@@ -42,8 +42,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/src/devDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/aidl_source_output_dir/devDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/ap_generated_sources/devDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/aidl_source_output_dir/devDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/source/buildConfig/androidTest/dev/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/renderscript_source_output_dir/devDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../payme/build/generated/res/rs/androidTest/dev/debug" type="java-test-resource" generated="true" />
@@ -151,9 +151,7 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife-annotations:10.2.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:1.1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.9.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.6@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.9.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:4.7.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:4.7.2@jar" level="project" />
@@ -199,7 +197,6 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:1.1.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton.timber:timber:4.7.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.paytm:pgplussdk:1.1.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.realm:android-adapters:2.1.1@aar" level="project" />
