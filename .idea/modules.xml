@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Payme.iml" filepath="$PROJECT_DIR$/Payme.iml" group="Payme" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Payme/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payme/payme.iml" filepath="$PROJECT_DIR$/.idea/modules/payme/payme.iml" group="Payme/payme" />
+      <module fileurl="file://$PROJECT_DIR$/Payme.iml" filepath="$PROJECT_DIR$/Payme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Payme.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Payme.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payme/Payme.payme.iml" filepath="$PROJECT_DIR$/.idea/modules/payme/Payme.payme.iml" />
     </modules>
   </component>
 </project>
