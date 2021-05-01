@@ -57,7 +57,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".carouselview.Main7Activity"></activity>
+        <activity android:name=".carouselview.Main7Activity" />
         <activity
             android:name=".activity.IntroductionActivity"
             android:screenOrientation="fullUser"
