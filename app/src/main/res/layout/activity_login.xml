@@ -174,7 +174,7 @@
                 android:id="@+id/btn_reset_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_200"
+                android:layout_marginLeft="@dimen/dimen_220"
                 android:background="@android:color/transparent"
                 android:paddingLeft="@dimen/dimen_12"
                 android:text="@string/btn_forgot_password"
@@ -349,104 +349,104 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/llForgot"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/black_50"-->
-<!--        android:layout_gravity="center_vertical"-->
-<!--        android:orientation="vertical"-->
-<!--        android:visibility="invisible"-->
-<!--        android:padding="@dimen/activity_horizontal_margin">-->
+    <LinearLayout
+        android:id="@+id/llForgot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_50"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:padding="@dimen/activity_horizontal_margin">
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/llForgot_msg"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
+        <LinearLayout
+            android:id="@+id/llForgot_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-<!--            <TextView-->
-<!--                android:id="@+id/forgot_txt"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/btn_forgot_password"-->
-<!--                android:textSize="@dimen/text_28"-->
-<!--                android:layout_marginTop="@dimen/dimen_130"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                />-->
-<!--            <TextView-->
-<!--                android:id="@+id/forgot_sbtxt"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/forgot_password_msg"-->
-<!--                android:textColor="@color/white_75"-->
-<!--                android:layout_marginTop="@dimen/dimen_4"-->
-<!--                />-->
+            <TextView
+                android:id="@+id/forgot_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_forgot_password"
+                android:textSize="@dimen/text_28"
+                android:layout_marginTop="@dimen/dimen_130"
+                android:textColor="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/forgot_sbtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password_msg"
+                android:textColor="@color/white_75"
+                android:layout_marginTop="@dimen/dimen_4"
+                />
 
-<!--        </LinearLayout>-->
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/dimen_6"-->
-<!--            android:textColorHint="@color/color_white">-->
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_6"
+            android:textColorHint="@color/color_white">
 
-<!--            <EditText-->
-<!--                android:id="@+id/fgt_email"-->
-<!--                style="@style/text_16_white_normal"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:hint="@string/hint_email"-->
-<!--                android:backgroundTint="@color/white_hint"-->
-<!--                android:inputType="textEmailAddress" />-->
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
+            <EditText
+                android:id="@+id/fgt_email"
+                style="@style/text_16_white_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/hint_email"
+                android:backgroundTint="@color/white_hint"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/transitions_container"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
+        <LinearLayout
+            android:id="@+id/transitions_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-<!--            <Button-->
-<!--                android:id="@+id/btn_forgot"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/dimen_16"-->
-<!--                android:background="@drawable/btn_foreground"-->
-<!--                android:text="@string/lbl_forgot_password"-->
-<!--                android:textColor="@android:color/black" />-->
+            <Button
+                android:id="@+id/btn_forgot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:background="@drawable/btn_foreground"
+                android:text="@string/lbl_forgot_password"
+                android:textColor="@android:color/black" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/forgot_sbmsg"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/forgot_pwd_reset_msg"-->
-<!--                android:textColor="@android:color/holo_orange_dark"-->
-<!--                android:layoutDirection="rtl"-->
-<!--                android:layout_marginTop="@dimen/dimen_16"-->
-<!--                android:visibility="gone"-->
-<!--                />-->
-<!--        </LinearLayout>-->
-
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_back"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="@dimen/dimen_130"-->
-<!--            android:background="@null"-->
-<!--            android:text="@string/btn_back"-->
-<!--            android:layout_marginTop="@dimen/dimen_16"-->
-<!--            android:textColor="@color/color_white" />-->
+            <TextView
+                android:id="@+id/forgot_sbmsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_pwd_reset_msg"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layoutDirection="rtl"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:visibility="gone"
+                />
+        </LinearLayout>
 
 
-<!--    </LinearLayout>-->
-<!--    <ProgressBar-->
-<!--        android:id="@+id/progressBar"-->
-<!--        android:layout_width="30dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_gravity="center|bottom"-->
-<!--        android:layout_marginBottom="@dimen/dimen_12"-->
-<!--        android:visibility="gone" />-->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_130"
+            android:background="@null"
+            android:text="@string/btn_back"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:textColor="@color/color_white" />
+
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="@dimen/dimen_12"
+        android:visibility="gone" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

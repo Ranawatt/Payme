@@ -28,12 +28,12 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
-            window.setStatusBarColor(R.color.colorAccent);
+            window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
         }
         setContentView(R.layout.activity_main3);
 
-        imageView= (ImageView) findViewById(R.id.imageView);
-        textView= (TextView) findViewById(R.id.textView3);
+        imageView= findViewById(R.id.imageView);
+        textView= findViewById(R.id.textView3);
         textView.forceLayout();
         textView.setBackgroundColor(Color.LTGRAY);
         imageView.setImageResource(R.drawable.images3);

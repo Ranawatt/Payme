@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         forgot_txt = findViewById(R.id.forgot_txt);
         forgot_sbtxt = findViewById(R.id.forgot_sbtxt);
 
-        transitionsContainer = (ViewGroup) findViewById(R.id.transitions_container);
+        transitionsContainer = findViewById(R.id.transitions_container);
         text = transitionsContainer.findViewById(R.id.forgot_sbmsg);
         btnForgot = transitionsContainer.findViewById(R.id.btn_forgot);
     }
