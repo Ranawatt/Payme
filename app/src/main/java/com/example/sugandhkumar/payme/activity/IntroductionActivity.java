@@ -52,15 +52,10 @@ public class IntroductionActivity extends AppCompatActivity {
         layouts = new int[]{
                 R.layout.intro_slide1,R.layout.intro_slide2,R.layout.intro_slide3, R.layout.intro_slide4
         };
-        btnSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchHomeScreen();
-            }
+        btnSkip.setOnClickListener((view) -> {
+            launchHomeScreen();
         });
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnNext.setOnClickListener((view) -> {
                 int current = getItem(+1);
                 if (current < layouts.length) {
                     // move to next screen
@@ -69,7 +64,6 @@ public class IntroductionActivity extends AppCompatActivity {
                     Intent in =  new Intent(IntroductionActivity.this,SignupActivity.class);
                     startActivity(in);
                 }
-            }
         });
 
         addBottomDots(0);

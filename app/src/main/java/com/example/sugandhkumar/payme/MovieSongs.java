@@ -32,49 +32,20 @@ public class MovieSongs extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AlbumsAdapter adapter;
     private List<Album> albumList;
-    private LinearLayout dotsLayout;
-    private TextView dots[];
-    private MyViewPagerAdapter myViewPagerAdapter;
-    private ViewPager mViewPager;
-    private  int images[];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_songs);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         initCollapsingToolbar();
 
-
-//        images = new int[]{
-//                R.drawable.cover,R.drawable.cover,R.drawable.cover,R.drawable.cover
-//        };
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view1);
-//        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-//        dotsLayout = (LinearLayout) findViewById(R.id.layout_Dots);
+        recyclerView = findViewById(R.id.recycler_view1);
 
         albumList = new ArrayList<>();
         adapter = new AlbumsAdapter(this,albumList);
-
-//        myViewPagerAdapter = new MyViewPagerAdapter();
-//        mViewPager.setAdapter(myViewPagerAdapter);
-//        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                addBottomdots(position);
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -84,7 +55,6 @@ public class MovieSongs extends AppCompatActivity {
 
         prepareAlbums();
 
-//        addBottomdots(0);
         try {
             Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
         } catch (Exception e) {
@@ -92,31 +62,10 @@ public class MovieSongs extends AppCompatActivity {
         }
     }
 
-    private void addBottomdots(int currentPage) {
-        dots = new TextView[images.length];
-
-        int colorActive = getResources().getColor(R.color.color_plane);
-        int colorInactive = getResources().getColor(R.color.color_white);
-        dotsLayout.removeAllViews();
-        for (int i=0; i<dots.length;i++){
-            dots[i] = new TextView(this);
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(colorInactive);
-            dotsLayout.addView(dots[i]);
-        }
-
-        if (dots.length > 0)
-            dots[currentPage].setTextColor(colorActive);
-    }
-//    private int getItem(int i) {
-//        return mViewPager.getCurrentItem() + i;
-//    }
     private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        final CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        AppBarLayout appBarLayout = findViewById(R.id.appbar);
         appBarLayout.setExpanded(true);
 
         // hiding & showing the title when toolbar expanded & collapsed
@@ -220,43 +169,9 @@ public class MovieSongs extends AppCompatActivity {
         }
     }
 
-    /**
-     * Converting dp to pixel
-     */
+    // Converting dp to pixel
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
-
-    public class MyViewPagerAdapter extends PagerAdapter{
-        private LayoutInflater layoutInflater;
-        public MyViewPagerAdapter() {
-        }
-
-        @Override
-        public int getCount() {
-            return images.length;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            View view = layoutInflater.inflate(images[position], container, false);
-            container.addView(view);
-
-            return view;
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            View view = (View) object;
-            container.removeView(view);
-        }
     }
 }

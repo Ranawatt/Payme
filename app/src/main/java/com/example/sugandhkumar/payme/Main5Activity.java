@@ -28,7 +28,7 @@ public class Main5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        eRecyclerView = (RecyclerView) findViewById(R.id.rvElectronics);
+        eRecyclerView = findViewById(R.id.rvElectronics);
         eRecyclerView.setHasFixedSize(true);
         eRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
