@@ -12,6 +12,8 @@ import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.View;
@@ -47,7 +49,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button fbLogin;
     private VideoView videoview;
     private Animation imgAnimation;
-    private LinearLayout llSignin, llSignup, llLogin, llForgot, llForgotMsg;
+    private LinearLayout llSignin, llSignup, llForgot, llForgotMsg;
+    private ConstraintLayout llLogin;
     private TextView welcome_txt, welcome_sbtxt, text, forgot_txt, forgot_sbtxt;
     ViewGroup transitionsContainer;
     boolean visible;
@@ -112,35 +115,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initViews() {
-        imgLogo = (ImageView) findViewById(R.id.img_icon);
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        btnSignup = (Button) findViewById(R.id.btn_signup);
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        btnReset = (Button) findViewById(R.id.btn_reset_password);
-        videoview = (VideoView) findViewById(R.id.video_view);
-        fbLogin = (Button) findViewById(R.id.fb_login);
-        googleLogin = (Button) findViewById(R.id.gle_login);
-        welcome_txt = (TextView) findViewById(R.id.welcome_txt);
-        welcome_sbtxt = (TextView) findViewById(R.id.welcome_sbtxt);
-        llSignin = (LinearLayout) findViewById(R.id.llSignin);
-        llSignup = (LinearLayout) findViewById(R.id.llSignup);
-        llLogin = (LinearLayout) findViewById(R.id.llLogin);
-        llForgot = (LinearLayout) findViewById(R.id.llForgot);
-        llForgotMsg = (LinearLayout) findViewById(R.id.llForgot_msg);
-        signinButton = (Button) findViewById(R.id.sign_in_button);
-        signupButton = (Button) findViewById(R.id.sign_up_button);
-        fgtEmail = (EditText) findViewById(R.id.fgt_email);
-        regEmail = (EditText) findViewById(R.id.et_email);
-        regPwd = (EditText) findViewById(R.id.et_password);
-        btnBack = (Button) findViewById(R.id.btn_back);
-        forgot_txt = (TextView) findViewById(R.id.forgot_txt);
-        forgot_sbtxt = (TextView) findViewById(R.id.forgot_sbtxt);
+        imgLogo = findViewById(R.id.img_icon);
+        inputEmail = findViewById(R.id.email);
+        inputPassword = findViewById(R.id.password);
+        progressBar = findViewById(R.id.progressBar);
+        btnSignup = findViewById(R.id.btn_signup);
+        btnLogin = findViewById(R.id.btn_login);
+        btnReset = findViewById(R.id.btn_reset_password);
+        videoview = findViewById(R.id.video_view);
+        fbLogin = findViewById(R.id.fb_login);
+        googleLogin = findViewById(R.id.gle_login);
+        welcome_txt = findViewById(R.id.welcome_txt);
+        welcome_sbtxt = findViewById(R.id.welcome_sbtxt);
+        llSignin = findViewById(R.id.llSignin);
+        llSignup = findViewById(R.id.llSignup);
+        llLogin = findViewById(R.id.llLogin);
+        llForgot = findViewById(R.id.llForgot);
+        llForgotMsg = findViewById(R.id.llForgot_msg);
+        signinButton = findViewById(R.id.sign_in_button);
+        signupButton = findViewById(R.id.sign_up_button);
+        fgtEmail = findViewById(R.id.fgt_email);
+        regEmail = findViewById(R.id.et_email);
+        regPwd = findViewById(R.id.et_password);
+        btnBack = findViewById(R.id.btn_back);
+        forgot_txt = findViewById(R.id.forgot_txt);
+        forgot_sbtxt = findViewById(R.id.forgot_sbtxt);
 
         transitionsContainer = (ViewGroup) findViewById(R.id.transitions_container);
-        text = (TextView) transitionsContainer.findViewById(R.id.forgot_sbmsg);
-        btnForgot = (Button) transitionsContainer.findViewById(R.id.btn_forgot);
+        text = transitionsContainer.findViewById(R.id.forgot_sbmsg);
+        btnForgot = transitionsContainer.findViewById(R.id.btn_forgot);
     }
 
     private boolean isNetworkAvailable(Context context) {
