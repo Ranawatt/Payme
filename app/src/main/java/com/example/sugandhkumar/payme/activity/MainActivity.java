@@ -16,6 +16,7 @@ import android.provider.Settings;
 import androidx.annotation.NonNull;
 
 import com.example.sugandhkumar.payme.GetLocationActivity;
+import com.example.sugandhkumar.payme.carouselview.Main7Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -401,7 +402,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.electronics) {
             startActivity(new Intent(MainActivity.this, Main5Activity.class));
         } else if (id == R.id.fashion) {
-            startActivity(new Intent(MainActivity.this, Main6Activity.class));
+            startActivity(new Intent(MainActivity.this, Main7Activity.class));
         } else if (id == R.id.wfashion) {
         } else if (id == R.id.baby) {
             startActivity(new Intent(MainActivity.this, GetLocationActivity.class));

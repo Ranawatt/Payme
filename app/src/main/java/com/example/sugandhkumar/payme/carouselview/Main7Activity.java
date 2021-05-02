@@ -2,6 +2,7 @@ package com.example.sugandhkumar.payme.carouselview;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.helper.widget.Carousel;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 
 import android.content.Context;
@@ -24,8 +25,6 @@ public class Main7Activity extends AppCompatActivity {
 
     int numImages;
 
-    ////////////////////////////////////////////////////////////////
-    // Some data for the Carousel examples...
     ////////////////////////////////////////////////////////////////
     // Some data for the Carousel examples...
 

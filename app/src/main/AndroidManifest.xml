@@ -57,6 +57,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".carouselview.CarouselHelperActivity"></activity>
+        <activity android:name=".carouselview.CircularFlowDemoActivity" />
         <activity android:name=".carouselview.Main7Activity" />
         <activity
             android:name=".activity.IntroductionActivity"
