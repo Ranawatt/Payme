@@ -21,26 +21,38 @@
         android:id="@+id/view2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toStartOf="@+id/view3"/>
 
     <View
         android:id="@+id/view3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintStart_toEndOf="@+id/view2"/>
 
     <View
         android:id="@+id/view4"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@android:color/holo_green_dark" />
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view1"
+        app:layout_constraintTop_toTopOf="@+id/view3"/>
 
 
     <View
         android:id="@+id/view5"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_dark" />
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintBottom_toTopOf="@+id/view6"/>
 
 
     <View
@@ -78,7 +90,7 @@
         android:id="@+id/circularFlow"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:circularflow_defaultRadius="110dp"
+        app:circularflow_defaultRadius="110"
         app:circularflow_defaultAngle="45"
         app:circularflow_radiusInDP="110, 150, 170, 190"
         app:circularflow_angles="10, 40, 80, 135"

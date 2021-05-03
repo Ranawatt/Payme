@@ -11,18 +11,13 @@
     android:weightSum="1"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_navmenu"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_80">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_navmenu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbarStyle="insideOverlay">
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </LinearLayout>
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:scrollbarStyle="insideOverlay">
+    </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -71,19 +66,11 @@
 
         </androidx.viewpager.widget.ViewPager>
     </LinearLayout>
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marg00i0n01B01o01tt0om="@dimen/dimen_1"-->
-        <!--android:layout_marginRight="@dimen/dimen_8"-->
-        <!--android:layout_gravity="bottom|right"-->
-        <!--android:src="@drawable/belize" />-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height=".6dp"
         android:layout_weight="0.1"
-        android:layout_marginBottom=".4dp"
         android:background="@color/color_white"
         android:orientation="vertical">
 

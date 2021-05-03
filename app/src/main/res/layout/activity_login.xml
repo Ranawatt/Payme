@@ -201,6 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/msg_signup"
+                    android:layout_marginStart="@dimen/dimen_6"
                     android:textAlignment="center"
                     android:textColor="@color/white_75" />
 
@@ -212,7 +213,6 @@
                     android:background="@drawable/btn_background"
                     android:text="@string/action_sign_in_short"
                     android:textColor="#ffffffff" />
-                <!--                        android:backgroundTint="@color/black_50"/>-->
             </LinearLayout>
         </LinearLayout>
 
