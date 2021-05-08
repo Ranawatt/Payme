@@ -28,7 +28,6 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //        }
     }
-    //TODO (1) Enable Data Binding in the Application
     dataBinding.enabled = true;
     sourceSets {
         main {

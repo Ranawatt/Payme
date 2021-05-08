@@ -43,13 +43,13 @@
             android:textStyle="bold"
             android:fontFamily="sans-serif"
             android:elevation="@dimen/dimen_3"
-            android:textSize="@dimen/text_16"/>
+            android:textSize="@dimen/text_16" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/img_delivery"
-            android:src="@drawable/delivery"/>
+            android:src="@drawable/delivery" />
 
     </androidx.cardview.widget.CardView>
 

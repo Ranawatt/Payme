@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,27 +11,21 @@ import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.DataBindingUtil;
 
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.sugandhkumar.payme.activity.MainActivity;
+import com.example.sugandhkumar.payme.databinding.ActivityLoginBinding;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookSdk;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -41,21 +34,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     final Context context = this;
-    private EditText inputEmail, inputPassword, fgtEmail, regEmail, regPwd;
-    private ImageView imgLogo;
     private FirebaseAuth auth;
-    private ProgressBar progressBar;
-    private Button btnSignup, btnLogin, btnReset, signinButton, signupButton, googleLogin, btnBack, btnForgot;
-    private Button fbLogin;
     private VideoView videoview;
     private Animation imgAnimation;
-    private LinearLayout llSignin, llSignup, llForgot, llForgotMsg;
-    private ConstraintLayout llLogin;
-    private TextView welcome_txt, welcome_sbtxt, text, forgot_txt, forgot_sbtxt;
-    ViewGroup transitionsContainer;
     boolean visible;
     CallbackManager callbackManager;
-
+    private ActivityLoginBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,9 +49,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
-        setContentView(R.layout.activity_login);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        initViews();
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        videoview = binding.included.findViewById(R.id.video_view);
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Are you offline?");
@@ -87,63 +71,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
-        btnLogin.setOnClickListener(this);
-        btnSignup.setOnClickListener(this);
-        btnReset.setOnClickListener(this);
-        signinButton.setOnClickListener(this);
-        signupButton.setOnClickListener(this);
-        btnBack.setOnClickListener(this);
-        btnForgot.setOnClickListener(this);
+        binding.btnLogin.setOnClickListener(this);
+        binding.btnSignup.setOnClickListener(this);
+        binding.btnResetPassword.setOnClickListener(this);
+        binding.signInButton.setOnClickListener(this);
+        binding.signUpButton.setOnClickListener(this);
+        binding.btnBack.setOnClickListener(this);
+        binding.btnForgot.setOnClickListener(this);
 
         imgAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fromtop);
-        imgLogo.setAnimation(imgAnimation);
+        binding.imgIcon.setAnimation(imgAnimation);
 
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.anna_moskal);
         videoview.setVideoURI(uri);
         videoview.start();
-        videoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mediaPlayer.setLooping(true);
-            }
-        });
-
-        welcome_txt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Regular.otf"));
-        forgot_txt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Medium.otf"));
-        welcome_sbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Light.otf"));
-        forgot_sbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Clockopia.ttf"));
-    }
-
-    private void initViews() {
-        imgLogo = findViewById(R.id.img_icon);
-        inputEmail = findViewById(R.id.email);
-        inputPassword = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar);
-        btnSignup = findViewById(R.id.btn_signup);
-        btnLogin = findViewById(R.id.btn_login);
-        btnReset = findViewById(R.id.btn_reset_password);
-        videoview = findViewById(R.id.video_view);
-        fbLogin = findViewById(R.id.fb_login);
-        googleLogin = findViewById(R.id.gle_login);
-        welcome_txt = findViewById(R.id.welcome_txt);
-        welcome_sbtxt = findViewById(R.id.welcome_sbtxt);
-        llSignin = findViewById(R.id.llSignin);
-        llSignup = findViewById(R.id.llSignup);
-        llLogin = findViewById(R.id.llLogin);
-        llForgot = findViewById(R.id.llForgot);
-        llForgotMsg = findViewById(R.id.llForgot_msg);
-        signinButton = findViewById(R.id.sign_in_button);
-        signupButton = findViewById(R.id.sign_up_button);
-        fgtEmail = findViewById(R.id.fgt_email);
-        regEmail = findViewById(R.id.et_email);
-        regPwd = findViewById(R.id.et_password);
-        btnBack = findViewById(R.id.btn_back);
-        forgot_txt = findViewById(R.id.forgot_txt);
-        forgot_sbtxt = findViewById(R.id.forgot_sbtxt);
-
-        transitionsContainer = findViewById(R.id.transitions_container);
-        text = transitionsContainer.findViewById(R.id.forgot_sbmsg);
-        btnForgot = transitionsContainer.findViewById(R.id.btn_forgot);
+        videoview.setOnPreparedListener( mediaPlayer ->
+                mediaPlayer.setLooping(true)
+        );
+        binding.welcomeTxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Regular.otf"));
+        binding.forgotTxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Medium.otf"));
+        binding.welcomeSbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Light.otf"));
+        binding.forgotSbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Clockopia.ttf"));
     }
 
     private boolean isNetworkAvailable(Context context) {
@@ -163,24 +111,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_signup) {
-            llSignin.setVisibility(View.GONE);
-            welcome_txt.setText(getString(R.string.disc_trends));
-            welcome_sbtxt.setText(getString(R.string.signup_msg));
-            llSignup.setVisibility(View.VISIBLE);
+            binding.llSignin.setVisibility(View.GONE);
+            binding.welcomeTxt.setText(getString(R.string.disc_trends));
+            binding.welcomeSbtxt.setText(getString(R.string.signup_msg));
+            binding.llSignup.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.btn_reset_password) {
-            llLogin.setVisibility(View.INVISIBLE);
-            llForgot.setVisibility(View.VISIBLE);
-            llForgotMsg.setAnimation(imgAnimation);
+            binding.llLogin.setVisibility(View.INVISIBLE);
+            binding.llForgot.setVisibility(View.VISIBLE);
+            binding.llForgotMsg.setAnimation(imgAnimation);
         } else if (view.getId() == R.id.btn_login) {
             signIn();
         }else if (view.getId() == R.id.sign_in_button){
-            llSignup.setVisibility(View.INVISIBLE);
-            welcome_txt.setText(getString(R.string.welcome));
-            welcome_sbtxt.setText(getString(R.string.welcome_note));
-            llSignin.setVisibility(View.VISIBLE);
+            binding.llSignup.setVisibility(View.INVISIBLE);
+            binding.welcomeTxt.setText(getString(R.string.welcome));
+            binding.welcomeSbtxt.setText(getString(R.string.welcome_note));
+            binding.llSignin.setVisibility(View.VISIBLE);
         }else if (view.getId() == R.id.btn_back){
-            llForgot.setVisibility(View.INVISIBLE);
-            llLogin.setVisibility(View.VISIBLE);
+            binding.llForgot.setVisibility(View.INVISIBLE);
+            binding.llLogin.setVisibility(View.VISIBLE);
         }else if (view.getId() == R.id.sign_up_button){
             signUp();
         }else if (view.getId() == R.id.btn_forgot){
@@ -189,34 +137,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void forgotPwd() {
-        if (!TextUtils.isEmpty(fgtEmail.getText().toString().trim())){
+        if (!TextUtils.isEmpty(binding.fgtEmail.getText().toString().trim())) {
             //validateMail(getemail);
-            progressBar.setVisibility(View.VISIBLE);
-            auth.sendPasswordResetEmail(fgtEmail.getText().toString().trim())
+            binding.progressBar.setVisibility(View.VISIBLE);
+            auth.sendPasswordResetEmail(binding.fgtEmail.getText().toString().trim())
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                TransitionManager.beginDelayedTransition(transitionsContainer);
+                                TransitionManager.beginDelayedTransition(binding.transitionsContainer);
                                 visible = !visible;
-                                text.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-ExtraLight.otf"));
-                                text.setTranslationX(View.AUTOFILL_TYPE_TOGGLE);
-                                text.setVisibility(visible ? View.VISIBLE : View.GONE);
+                                binding.forgotSbmsg.setTypeface(Typeface.createFromAsset(context.getAssets(), "Pangram-ExtraLight.otf"));
+                                binding.forgotSbmsg.setTranslationX(View.AUTOFILL_TYPE_TOGGLE);
+                                binding.forgotSbmsg.setVisibility(visible ? View.VISIBLE : View.GONE);
                             } else {
                                 Toast.makeText(LoginActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
                             }
-                            progressBar.setVisibility(View.GONE);
+                            binding.progressBar.setVisibility(View.GONE);
                         }
                     });
-
-        } else {
+        }else
             Toast.makeText(getApplicationContext(), "Enter the Email", Toast.LENGTH_LONG).show();
-        }
     }
 
     private void signUp() {
-        String email = regEmail.getText().toString().trim();
-        String password = regPwd.getText().toString().trim();
+        String email = binding.etEmail.getText().toString().trim();
+        String password = binding.etPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -232,15 +178,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        progressBar.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
         //create user
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Toast.makeText(LoginActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
+                        binding.progressBar.setVisibility(View.GONE);
                         if (!task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
@@ -250,14 +195,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-
     }
 
     private void signIn() {
-        inputEmail.requestFocus();
-        String email = inputEmail.getText().toString();
-        inputPassword.requestFocus();
-        final String password = inputPassword.getText().toString();
+        binding.email.requestFocus();
+        String email = binding.email.getText().toString();
+        binding.password.requestFocus();
+        final String password = binding.password.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -267,7 +211,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
             return;
         }
-        progressBar.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
         //authenticate user
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -275,10 +219,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // If sign in fails, display a message to the user. If sign in succeeds
                 // the auth state listener will be notified and logic to handle the
                 // signed in user can be handled in the listener.
-                progressBar.setVisibility(View.GONE);
+                binding.progressBar.setVisibility(View.GONE);
                 if (!task.isSuccessful()) {
                     if (password.length() < 6)
-                        inputPassword.setError(getString(R.string.minimum_password));
+                        binding.password.setError(getString(R.string.minimum_password));
                     else
                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                 } else {
@@ -288,5 +232,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-
 }
