@@ -12,17 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.VideoView;
-
 import com.example.sugandhkumar.payme.activity.MainActivity;
 import com.example.sugandhkumar.payme.databinding.ActivityLoginBinding;
 import com.facebook.CallbackManager;
@@ -40,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     boolean visible;
     CallbackManager callbackManager;
     private ActivityLoginBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         videoview = binding.included.findViewById(R.id.video_view);
         if (!isNetworkAvailable(this)) {
@@ -85,13 +83,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.anna_moskal);
         videoview.setVideoURI(uri);
         videoview.start();
-        videoview.setOnPreparedListener( mediaPlayer ->
+        videoview.setOnPreparedListener(mediaPlayer ->
                 mediaPlayer.setLooping(true)
         );
-        binding.welcomeTxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Regular.otf"));
-        binding.forgotTxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Medium.otf"));
-        binding.welcomeSbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Pangram-Light.otf"));
-        binding.forgotSbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(),"Clockopia.ttf"));
+        binding.welcomeTxt.setTypeface(Typeface.createFromAsset(context.getAssets(), "Pangram-Regular.otf"));
+        binding.forgotTxt.setTypeface(Typeface.createFromAsset(context.getAssets(), "Pangram-Medium.otf"));
+        binding.welcomeSbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(), "Pangram-Light.otf"));
+        binding.forgotSbtxt.setTypeface(Typeface.createFromAsset(context.getAssets(), "Clockopia.ttf"));
     }
 
     private boolean isNetworkAvailable(Context context) {
@@ -121,17 +119,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             binding.llForgotMsg.setAnimation(imgAnimation);
         } else if (view.getId() == R.id.btn_login) {
             signIn();
-        }else if (view.getId() == R.id.sign_in_button){
+        } else if (view.getId() == R.id.sign_in_button) {
             binding.llSignup.setVisibility(View.INVISIBLE);
             binding.welcomeTxt.setText(getString(R.string.welcome));
             binding.welcomeSbtxt.setText(getString(R.string.welcome_note));
             binding.llSignin.setVisibility(View.VISIBLE);
-        }else if (view.getId() == R.id.btn_back){
+        } else if (view.getId() == R.id.btn_back) {
             binding.llForgot.setVisibility(View.INVISIBLE);
             binding.llLogin.setVisibility(View.VISIBLE);
-        }else if (view.getId() == R.id.sign_up_button){
+        } else if (view.getId() == R.id.sign_up_button) {
             signUp();
-        }else if (view.getId() == R.id.btn_forgot){
+        } else if (view.getId() == R.id.btn_forgot) {
             forgotPwd();
         }
     }
@@ -156,7 +154,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             binding.progressBar.setVisibility(View.GONE);
                         }
                     });
-        }else
+        } else
             Toast.makeText(getApplicationContext(), "Enter the Email", Toast.LENGTH_LONG).show();
     }
 
