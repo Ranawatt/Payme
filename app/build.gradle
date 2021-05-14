@@ -28,7 +28,9 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //        }
     }
-    dataBinding.enabled = true;
+    buildFeatures {
+        dataBinding true
+    }
     sourceSets {
         main {
             res.srcDirs = ['src/main/res', 'src/main/res/anim', 'src/main/res/raw']
