@@ -1,6 +1,6 @@
 package com.example.myapplicati.networking;
 
-import com.example.myapplicati.db.model.Transaction;
+import com.example.myapplicati.db.model.Transactions;
 import com.example.myapplicati.db.model.User;
 import com.example.myapplicati.networking.model.AppConfig;
 import com.example.myapplicati.networking.model.ChecksumResponse;
@@ -47,5 +47,5 @@ public interface ApiClient {
     Call<PrepareOrderResponse> prepareOrder(@Body PrepareOrderRequest request);
 
     @GET("transactions")
-    Call<List<Transaction>> getTransactions();
+    Call<List<Transactions>> getTransactions();
 }

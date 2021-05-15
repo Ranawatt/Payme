@@ -1,6 +1,5 @@
 package com.example.myapplicati.ui.transactions;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.myapplicati.R;
-import com.example.myapplicati.db.model.Transaction;
+import com.example.myapplicati.db.model.Transactions;
 import com.example.myapplicati.ui.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class TransactionsActivity extends BaseActivity {
     LinearLayout layoutEmptyData;
 
     private TransactionsAdapter mAdapter;
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<Transactions> transactions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +63,9 @@ public class TransactionsActivity extends BaseActivity {
 
     private void fetchTransactions() {
         toggleProgress(true);
-        getApi().getTransactions().enqueue(new Callback<List<Transaction>>() {
+        getApi().getTransactions().enqueue(new Callback<List<Transactions>>() {
             @Override
-            public void onResponse(Call<List<Transaction>> call, Response<List<Transaction>> response) {
+            public void onResponse(Call<List<Transactions>> call, Response<List<Transactions>> response) {
                 toggleProgress(false);
                 if (!response.isSuccessful()) {
                     handleUnknownError();
@@ -80,7 +79,7 @@ public class TransactionsActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Transaction>> call, Throwable t) {
+            public void onFailure(Call<List<Transactions>> call, Throwable t) {
                 toggleProgress(false);
                 handleError(t);
             }

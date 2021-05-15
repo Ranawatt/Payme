@@ -2,7 +2,6 @@
     <string name="app_name">Payme</string>
 
     <string name="facebook_app_id">1162988323788689</string>
-    <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -12,19 +11,12 @@
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">LOVE MUSIC</string>
     <string name="backdrop_subtitle">This season top 20 albums</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="large_text">Large</string>
-    <string name="title_activity_login">Sign in</string>
     <string name="get_bill">Get Bill</string>
     <string name="offer">Offers</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
-    <string name="guest">Continue as Guest</string>
     <string name="help">Help</string>
     <string name="rech_Payment">Proceed To Recharge</string>
-
-    <string name="collapsed">collapsed: %s</string>
-    <string name="expanded">expanded: %s</string>
 
     <!-- Strings related to login -->
     <string name="welcome">Welcome to Payme !</string>
@@ -32,19 +24,10 @@
     <string name="welcome_msg">  Or login via e mail  </string>
     <string name="disc_trends">Discover Trends !</string>
     <string name="signup_msg">you\'re just one step away from signing up.</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">SIGN UP</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">Password is too short,enter minimum 6 number</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="title_activity_main9">Main9Activity</string>
-    <string name="name">Name</string>
-    <string name="unit_price">Unit Price</string>
-    <string name="title_devices">Mobile Devices</string>
     <string name="hint_email">Email ID</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
@@ -63,7 +46,6 @@
     <string name="cmpny_name">P A Y M E . C O M</string>
 
     <!--TODO (1) Add a String stating that an error has occured-->
-    <string name="error_message">Failed to get Results, Please Try Again</string>
     <string name="dialog_ok">OK</string>
 
     <string name="author_msg">"\"Everyday is a fashion show and the world is your runway.\""</string>

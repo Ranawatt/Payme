@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplicati.R;
-import com.example.myapplicati.db.model.Transaction;
+import com.example.myapplicati.db.model.Transactions;
 import com.example.myapplicati.helper.Constants;
 import com.example.myapplicati.helper.Utils;
 import com.example.myapplicati.ui.custom.OrderItemsListView;
@@ -22,10 +22,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapter.ViewHolder> {
-    private List<Transaction> transactions;
+    private List<Transactions> transactions;
     private Context context;
 
-    public TransactionsAdapter(Context context, List<Transaction> transactions) {
+    public TransactionsAdapter(Context context, List<Transactions> transactions) {
         this.context = context;
         this.transactions = transactions;
     }
@@ -39,12 +39,12 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        Transaction transaction = transactions.get(position);
-        if (transaction.order != null) {
-            viewHolder.orderId.setText(context.getString(R.string.order_id, transaction.order.id));
-            viewHolder.orderItems.setOrderItems(transaction.order.orderItems);
+        Transactions transactions = this.transactions.get(position);
+        if (transactions.order != null) {
+            viewHolder.orderId.setText(context.getString(R.string.order_id, transactions.order.id));
+            viewHolder.orderItems.setOrderItems(transactions.order.orderItems);
 
-            if (transaction.order.status.equalsIgnoreCase(Constants.ORDER_STATUS_COMPLETED)) {
+            if (transactions.order.status.equalsIgnoreCase(Constants.ORDER_STATUS_COMPLETED)) {
                 // order is placed
                 viewHolder.orderStatus.setText(context.getString(R.string.order_placed));
                 viewHolder.orderStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.colorGreen));
@@ -54,10 +54,10 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
                 viewHolder.orderStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.red_dull));
             }
 
-            viewHolder.price.setText(context.getString(R.string.total_price_with_currency_string, transaction.order.amount));
+            viewHolder.price.setText(context.getString(R.string.total_price_with_currency_string, transactions.order.amount));
         }
 
-        viewHolder.timestamp.setText(Utils.getOrderTimestamp(transaction.created_at));
+        viewHolder.timestamp.setText(Utils.getOrderTimestamp(transactions.created_at));
     }
 
     @Override

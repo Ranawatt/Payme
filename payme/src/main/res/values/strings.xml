@@ -30,7 +30,7 @@
     <string name="msg_preparing_order">Preparing your order</string>
     <string name="msg_fetching_checksum">Getting checksum value from the server</string>
     <string name="msg_redirecting_to_paytm">Redirecting to PayTM gateway</string>
-    <string name="msg_verifying_status">Verifying transaction status on server</string>
+    <string name="msg_verifying_status">Verifying transactions status on server</string>
     <string name="msg_order_placed_successfully">Your order placed successfully!</string>
     <string name="thank_you">THANK YOU</string>
     <string name="btn_check_order">CHECK ORDERS</string>
