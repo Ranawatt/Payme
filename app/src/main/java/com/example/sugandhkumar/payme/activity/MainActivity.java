@@ -13,17 +13,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
 
 import com.example.sugandhkumar.payme.GetLocationActivity;
-import com.example.sugandhkumar.payme.carouselview.Main7Activity;
+import com.example.sugandhkumar.payme.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.MenuItemCompat;
-import androidx.viewpager.widget.ViewPager;
+import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -32,6 +31,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +42,6 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sugandhkumar.payme.Callback;
@@ -74,12 +74,13 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.ArrayList;
 import java.util.List;
 
+import static androidx.viewpager2.widget.ViewPager2.*;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,Callback {
     public static final String TAG = MainActivity.class.getSimpleName();
     final Context context = this;
     private FirebaseAuth auth;
     private BottomNavigationView mBottomNavigationView;
-    private ViewPager mVpMain;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter navAdapter;
     private DatabaseReference mDatabase;
@@ -88,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     private LinearLayout free_orders;
-    private TextView tv_orders;
     private ImageView img_delivery;
 
     String payeeAddress = "8266874892@upi";
@@ -96,21 +96,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String transactionNote = "Test for Deeplinking";
     String amount = "10";
     String currencyUnit = "INR";
-
+    private ActivityMainBinding mBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        auth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
-        setContentView(R.layout.activity_main);
-        auth = FirebaseAuth.getInstance();
-
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
-        setUpViewPager(mVpMain);
+        setUpViewPager(mBinding.paymeAppBar.paymeMainViewpager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Are you offline?");
@@ -143,10 +140,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+                this, mBinding.drawerLayout, mBinding.paymeAppBar.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mBinding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -187,6 +183,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         subscribeToPushService();
     }
+
+    private void setUpViewPager(ViewPager2 paymeMainViewpager) {
+        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
+
+        MobrechargeFragment mobrechargeFragment = new MobrechargeFragment();
+        ElectricityFragment electricityFragment = new ElectricityFragment();
+        DthrechargeFragment dthrechargeFragment = new DthrechargeFragment();
+        WaterchargeFragment waterchargeFragment = new WaterchargeFragment();
+
+        adapter.addFragment(mobrechargeFragment);
+        adapter.addFragment(electricityFragment);
+        adapter.addFragment(dthrechargeFragment);
+        adapter.addFragment(waterchargeFragment);
+        paymeMainViewpager.setAdapter(navAdapter);
+    }
+
     public void processToPayments() {
 
         Uri uri = Uri.parse("upi://pay?pa="+payeeAddress+"&pn="+payeeName+"&tn="+transactionNote+
@@ -222,66 +234,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initView(){
-        tv_orders =(TextView) findViewById(R.id.tv_orders);
-        img_delivery =(ImageView) findViewById(R.id.img_delivery);
-        mVpMain = (ViewPager) findViewById(R.id.mVpMain);
-//        free_orders =(LinearLayout) findViewById(R.id.free_orders);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_navmenu);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         navmenuList = new ArrayList<>();
-        mBottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
-        BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
-        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        mBinding.paymeAppBar.paymeOrders.setOnClickListener(new OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.mob_icon:
-                        mVpMain.setCurrentItem(0);
-                        break;
-                    case R.id.electric_bill:
-                        mVpMain.setCurrentItem(1);
-                        break;
-                    case R.id.dth_recharge:
-                        mVpMain.setCurrentItem(2);
-                        break;
-                    case R.id.water_bill:
-                        mVpMain.setCurrentItem(3);
-                        break;
-                }
-                return true;
-            }
-        });
-        tv_orders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,Main6Activity.class));
             }
         });
-        mVpMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mBinding.paymeAppBar.paymeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
+
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+
+            }
+        });
+
+        mBinding.paymeAppBar.paymeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
             }
 
             @Override
             public void onPageSelected(int position) {
-                if(prevMenuItem!= null){
+                if (prevMenuItem != null) {
                     prevMenuItem.setChecked(false);
-                }
-                else{
+                } else {
                     mBottomNavigationView.getMenu().getItem(0).setChecked(false);
                 }
-                Log.d("page","On PageSelected: "+ position);
+                Log.d("page", "On PageSelected: " + position);
                 mBottomNavigationView.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
-
+                super.onPageScrollStateChanged(state);
             }
         });
-
     }
     private boolean isNetworkAvailable(Context context) {
         ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -402,7 +400,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.electronics) {
             startActivity(new Intent(MainActivity.this, Main5Activity.class));
         } else if (id == R.id.fashion) {
-            startActivity(new Intent(MainActivity.this, Main7Activity.class));
+            startActivity(new Intent(MainActivity.this, Main6Activity.class));
         } else if (id == R.id.wfashion) {
         } else if (id == R.id.baby) {
             startActivity(new Intent(MainActivity.this, GetLocationActivity.class));
@@ -435,20 +433,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void setUpViewPager(ViewPager viewPager){
-        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
+//    private void setUpViewPager(ViewPager2 viewPager){
 
-        MobrechargeFragment mobrechargeFragment = new MobrechargeFragment();
-        ElectricityFragment electricityFragment = new ElectricityFragment();
-        DthrechargeFragment dthrechargeFragment = new DthrechargeFragment();
-        WaterchargeFragment waterchargeFragment = new WaterchargeFragment();
-
-        adapter.addFragment(mobrechargeFragment);
-        adapter.addFragment(electricityFragment);
-        adapter.addFragment(dthrechargeFragment);
-        adapter.addFragment(waterchargeFragment);
-        viewPager.setAdapter(adapter);
-    }
+//        viewPager.setAdapter(adapter);
+//    }
 
     @SuppressLint("RestrictedApi")
     private void aboutDialog() {
