@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
-        setUpViewPager(mBinding.paymeAppBar.paymeMainViewpager);
+        setUpViewPager(mBinding.paymeMainViewpager);
 
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -139,11 +139,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mBinding.drawerLayout, mBinding.paymeAppBar.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mBinding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -239,13 +234,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         navmenuList = new ArrayList<>();
 
-        mBinding.paymeAppBar.paymeOrders.setOnClickListener(new OnClickListener() {
+        mBinding.paymeOrders.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,Main6Activity.class));
             }
         });
-        mBinding.paymeAppBar.paymeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
+        mBinding.paymeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
             @Override
             public void onViewAttachedToWindow(View v) {
 
@@ -257,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        mBinding.paymeAppBar.paymeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
+        mBinding.paymeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
@@ -312,10 +307,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onBackPressed() {
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        } else {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Confirm Exit");
             alertDialogBuilder
@@ -333,7 +328,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     });
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
-        }
+//        }
     }
 
     @Override
@@ -428,8 +423,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent.createChooser(intent, "click pic"));
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
