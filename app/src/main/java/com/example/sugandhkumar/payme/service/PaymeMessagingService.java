@@ -67,7 +67,7 @@ public class PaymeMessagingService extends FirebaseMessagingService {
         String TrueOrFlase = remoteMessage.getData().get("Main6Activity");
 
         //To get a Bitmap image from the URL received
-        bitmap = getBitmapfromUrl(imageUri);
+        bitmap = getBitmapFromUrl(imageUri);
 
         sendNotification(message, bitmap, TrueOrFlase);
 
@@ -105,7 +105,7 @@ public class PaymeMessagingService extends FirebaseMessagingService {
     /*
     *To get a Bitmap image from the URL received
     * */
-    public Bitmap getBitmapfromUrl(String imageUrl) {
+    public Bitmap getBitmapFromUrl(String imageUrl) {
         try {
             URL url = new URL(imageUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

@@ -1,5 +1,7 @@
 package com.example.sugandhkumar.payme;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.List;
  */
 
 public class DataProvider {
+
+    @NonNull
     public static HashMap<String, List<String>> getInfo(){
         HashMap<String,List<String>> HeaderDetails = new HashMap<>();
 

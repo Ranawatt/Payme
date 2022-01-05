@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by sugandh kumar on 31-08-2017.
  */
 
-public class MainPagerAdapter extends FragmentPagerAdapter {
+public class MainPagerAdapter extends FragmentStatePagerAdapter {
 
     private final ArrayList<Fragment> mFragmentList = new ArrayList<Fragment>();
 

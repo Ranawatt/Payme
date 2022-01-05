@@ -57,8 +57,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".carouselview.CarouselHelperActivity"></activity>
-        <activity android:name=".carouselview.CircularFlowDemoActivity" />
         <activity
             android:name=".activity.IntroductionActivity"
             android:screenOrientation="fullUser"
@@ -155,18 +153,17 @@
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="fullUser" />
 
-        <service android:name=".service.PaymeMessagingService">
-
-            <!-- android:permission="com.google.android.c2dm.permission.SEND"> -->
+        <service android:name=".service.PayMeMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSING_EVENT" />
-                <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
-        </service> <!-- <service android:name=".service.PaymeService"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
-        <!-- </intent-filter> -->
-        <!-- </service> -->
+        </service>
+<!--         <service android:name=".service.PaymeService">-->
+<!--         <intent-filter>-->
+<!--         <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />-->
+<!--         </intent-filter>-->
+<!--         </service>-->
         <activity
             android:name=".activity.FlipkartActivity"
             android:theme="@style/AppTheme.NoActionBar" />

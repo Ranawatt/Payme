@@ -16,21 +16,17 @@ import android.provider.Settings;
 
 import com.example.sugandhkumar.payme.GetLocationActivity;
 import com.example.sugandhkumar.payme.databinding.ActivityMainBinding;
+import com.example.sugandhkumar.payme.helper.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import androidx.core.view.GravityCompat;
 import androidx.core.view.MenuItemCompat;
-import androidx.databinding.DataBindingUtil;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
@@ -60,7 +56,6 @@ import com.example.sugandhkumar.payme.fragment.DthrechargeFragment;
 import com.example.sugandhkumar.payme.fragment.ElectricityFragment;
 import com.example.sugandhkumar.payme.fragment.MobrechargeFragment;
 import com.example.sugandhkumar.payme.fragment.WaterchargeFragment;
-import com.example.sugandhkumar.payme.helper.BottomNavigationViewHelper;
 import com.example.sugandhkumar.payme.model.Navmenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -68,13 +63,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.internal.FirebaseInstanceIdInternal;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.viewpager2.widget.ViewPager2.*;
+import static com.example.sugandhkumar.payme.helper.Constants.amount;
+import static com.example.sugandhkumar.payme.helper.Constants.currencyUnit;
+import static com.example.sugandhkumar.payme.helper.Constants.payeeAddress;
+import static com.example.sugandhkumar.payme.helper.Constants.payeeName;
+import static com.example.sugandhkumar.payme.helper.Constants.transactionNote;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,Callback {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -87,26 +87,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<Navmenu> navmenuList;
     MenuItem prevMenuItem;
 
-
-    private LinearLayout free_orders;
-    private ImageView img_delivery;
-
-    String payeeAddress = "8266874892@upi";
-    String payeeName = "Sugandh Kumar";
-    String transactionNote = "Test for Deeplinking";
-    String amount = "10";
-    String currencyUnit = "INR";
     private ActivityMainBinding mBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         auth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        setContentView(R.layout.activity_main);
         initView();
-        setUpViewPager(mBinding.paymeMainViewpager);
+//        setUpViewPager(paymeMainViewpager);
 
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -131,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             alertDialog.show();
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         changeStatusBarColor();
 
@@ -172,7 +162,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Intent intent = new Intent(this, Main6Activity.class);
                     intent.putExtra("value", value);
                     startActivity(intent);
-//                    finish();
                 }
             }
         }
@@ -196,8 +185,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void processToPayments() {
 
-        Uri uri = Uri.parse("upi://pay?pa="+payeeAddress+"&pn="+payeeName+"&tn="+transactionNote+
-                "&am="+amount+"&cu="+currencyUnit);
+        Uri uri = Uri.parse("upi://pay?pa="+ payeeAddress +"&pn="+payeeName+"&tn="+transactionNote+
+                "&am="+ amount +"&cu="+currencyUnit);
         Log.d(TAG, "onClick: uri: "+uri);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         PackageManager packageManager = getPackageManager();
@@ -214,18 +203,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void subscribeToPushService() {
         FirebaseMessaging.getInstance().subscribeToTopic("news");
-        String token = FirebaseInstanceId.getInstance().getToken();
+        String token = "";/*FirebaseInstanceId.getInstance().getToken();*/
         // Log and toast
         Log.d("PayMeToken", token);
         Log.d("PayMe", "Subscribed");
     }
 
     private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
-        }
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
     }
 
     private void initView(){
@@ -234,47 +221,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         navmenuList = new ArrayList<>();
 
-        mBinding.paymeOrders.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Main6Activity.class));
-            }
-        });
-        mBinding.paymeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
-            @Override
-            public void onViewAttachedToWindow(View v) {
+//        mBinding.paymeOrders.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this,Main6Activity.class));
+//            }
+//        });
+//        mBinding.paymeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
+//            @Override
+//            public void onViewAttachedToWindow(View v) {
+//
+//            }
+//
+//            @Override
+//            public void onViewDetachedFromWindow(View v) {
+//
+//            }
+//        });
 
-            }
+//        mBinding.paymeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                if (prevMenuItem != null) {
+//                    prevMenuItem.setChecked(false);
+//                } else {
+//                    mBottomNavigationView.getMenu().getItem(0).setChecked(false);
+//                }
+//                Log.d("page", "On PageSelected: " + position);
+//                mBottomNavigationView.getMenu().getItem(position).setChecked(true);
+//                prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
+//            }
 
-            @Override
-            public void onViewDetachedFromWindow(View v) {
-
-            }
-        });
-
-        mBinding.paymeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (prevMenuItem != null) {
-                    prevMenuItem.setChecked(false);
-                } else {
-                    mBottomNavigationView.getMenu().getItem(0).setChecked(false);
-                }
-                Log.d("page", "On PageSelected: " + position);
-                mBottomNavigationView.getMenu().getItem(position).setChecked(true);
-                prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
-            }
-        });
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//                super.onPageScrollStateChanged(state);
+//            }
+//        });
     }
     private boolean isNetworkAvailable(Context context) {
         ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -422,17 +409,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent.putExtra(Intent.EXTRA_TEXT, "sugandh");
             startActivity(intent.createChooser(intent, "click pic"));
         }
-
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-//    private void setUpViewPager(ViewPager2 viewPager){
-
-//        viewPager.setAdapter(adapter);
-//    }
-
     @SuppressLint("RestrictedApi")
     private void aboutDialog() {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);

@@ -60,15 +60,15 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         }
 
     private void initViews() {
-        btnChoose = (Button) findViewById(R.id.btnChoose);
-        btnUpload = (Button) findViewById(R.id.btnUpload);
-        imageSelected = (ImageView) findViewById(R.id.ivSelected);
-        etName = (EditText) findViewById(R.id.etName);
-        etCost = (EditText) findViewById(R.id.etCost);
-        tvBack = (TextView) findViewById(R.id.tvShowUpload);
-        etRemarks = (EditText) findViewById(R.id.etRemarks);
-        etDistance = (EditText) findViewById(R.id.etDistance);
-        etRatingPoint = (EditText) findViewById(R.id.etRatingPoint);
+        btnChoose = findViewById(R.id.btnChoose);
+        btnUpload = findViewById(R.id.btnUpload);
+        imageSelected = findViewById(R.id.ivSelected);
+        etName = findViewById(R.id.etName);
+        etCost = findViewById(R.id.etCost);
+        tvBack = findViewById(R.id.tvShowUpload);
+        etRemarks = findViewById(R.id.etRemarks);
+        etDistance = findViewById(R.id.etDistance);
+        etRatingPoint = findViewById(R.id.etRatingPoint);
     }
 
     private void initListeners() {

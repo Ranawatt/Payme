@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.MainActivity" 
-    android:layout_height="match_parent"
-     android:layout_width="match_parent">
-
+    tools:context=".activity.MainActivity">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
@@ -59,17 +56,16 @@
                     android:elevation="@dimen/dimen_3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rv_navmenu"
-                    tools:targetApi="lollipop">
+                    app:layout_constraintTop_toBottomOf="@+id/rv_navmenu">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/payme_orders"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        android:drawableEnd="@drawable/delivery"
+                        android:drawableRight="@drawable/delivery"
                         android:fontFamily="sans-serif"
-                        android:text="@string/shiping_orders"
+                        android:text="FREE SHIPPING ON ALL ORDER "
                         android:textColor="#FF931F51"
                         android:textSize="@dimen/text_16"
                         android:textStyle="bold" />
@@ -85,37 +81,45 @@
                     app:layout_constraintTop_toBottomOf="@+id/ship_view"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/payme_bottom_app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                app:fabAlignmentMode="center"
-                app:menu="@menu/bottom_nav_main"
-                app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
-                app:fabCradleMargin="@dimen/dimen_8"
-                app:hideOnScroll="true"
-                tools:ignore="BottomAppBar" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/super_deal"
-                app:srcCompat="@drawable/belize"/>
-
-            <com.google.android.material.navigation.NavigationView
-                android:id="@+id/nav_view"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:fitsSystemWindows="true"
-                app:headerLayout="@layout/nav_header_main"
-                app:menu="@menu/activity_main_drawer" />
         </androidx.core.widget.NestedScrollView>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/payme_bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:fabAlignmentMode="center"
+            app:menu="@menu/bottom_nav_main"
+            app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
+            app:fabCradleMargin="@dimen/dimen_8"
+            app:hideOnScroll="true"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/super_deal"
+            app:srcCompat="@drawable/belize"/>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
+<!--    <androidx.drawerlayout.widget.DrawerLayout-->
+<!--        android:id="@+id/drawer_layout"-->
+<!--        android:layout_width="match_parent" android:layout_height="match_parent"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        tools:openDrawer="start">-->
+
+<!--    -->
+
+
+<!--    </androidx.drawerlayout.widget.DrawerLayout>-->
 
