@@ -14,7 +14,7 @@ public class PaymeService {
 
     public void onTokenRefresh() {
         // Get updated InstanceID token.
-        String refreshedToken = "token"; /*FirebaseMessaging.getInstance().getToken();*/
+        String refreshedToken = ""; /*FirebaseMessaging.getInstance().getToken();*/
         FirebaseMessaging.getInstance().subscribeToTopic("all");
         Log.d(TAG, "Refreshed token: " + refreshedToken);
 
