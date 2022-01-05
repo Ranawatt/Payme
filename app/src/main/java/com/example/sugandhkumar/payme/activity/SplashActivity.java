@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -20,8 +21,9 @@ public class SplashActivity extends AppCompatActivity {
     ProgressBar progressBar;
     TextView textView;
     Animation animation, fromBottom;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -44,9 +46,9 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        textView= (TextView) findViewById(R.id.textView8);
-        imageView= (ImageView) findViewById(R.id.imageView4);
-        progressBar= (ProgressBar) findViewById(R.id.progressBar2);
+        textView= findViewById(R.id.textView8);
+        imageView= findViewById(R.id.imageView4);
+        progressBar=  findViewById(R.id.progressBar2);
     }
 
     private void doWork() {

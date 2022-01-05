@@ -47,7 +47,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.4.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation 'androidx.appcompat:appcompat:1.4.0'
@@ -59,17 +59,17 @@ dependencies {
     implementation 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
     implementation 'com.google.android.gms:play-services-auth:20.0.0'
     implementation 'com.google.android.gms:play-services-location:19.0.0'
-    implementation 'com.google.code.gson:gson:2.8.7'
-    implementation 'com.facebook.android:facebook-android-sdk:9.1.1'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.facebook.android:facebook-android-sdk:12.2.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'androidx.multidex:multidex:2.0.1'
 //    retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.google.code.gson:gson:2.8.7'
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
-    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
-    implementation 'com.squareup.okio:okio:3.0.0-alpha.5'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
+    implementation 'com.squareup.okio:okio:3.0.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'com.google.firebase:firebase-database:20.0.3'
     implementation 'com.google.firebase:firebase-storage:20.0.0'

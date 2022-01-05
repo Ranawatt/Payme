@@ -43,12 +43,13 @@
     <string name="forgot_password_msg">Its okay, it can happen to anyone. Enter your email and well send you a reset password link.</string>
     <string name="forgot_pwd_reset_msg"><b>We have sent you a link to reset your password.</b></string>
     <string name="description">Description</string>
-    <string name="cmpny_name">P A Y M E . C O M</string>
+    <string name="company_name">P A Y M E . C O M</string>
 
     <!--TODO (1) Add a String stating that an error has occured-->
     <string name="dialog_ok">OK</string>
 
     <string name="author_msg">"\"Everyday is a fashion show and the world is your runway.\""</string>
     <string name="super_deal">Super Deal</string>
-    <string name="shiping_orders">FREE SHIPPING ON ALL ORDER</string>
+    <string name="shipping_orders">FREE SHIPPING ON ALL ORDER</string>
+    <string name="copy_right">Created by Sugandh Ranawatt    Copyright © 2016</string>
 </resources>

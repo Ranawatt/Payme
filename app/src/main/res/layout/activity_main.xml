@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.MainActivity" 
-    android:layout_height="match_parent"
-     android:layout_width="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutFullScreen="@{true}">
+        tools:context="com.example.sugandhkumar.payme.activity.MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
@@ -37,39 +34,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom=".5dp"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_navmenu"
+                    android:id="@+id/rv_nav_menu"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="@dimen/dimen_80"
                     android:orientation="horizontal"
                     android:scrollbarStyle="insideOverlay"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/ship_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dimen_8"
                     android:layout_margin="@dimen/dimen_6"
                     android:elevation="@dimen/dimen_3"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:padding="@dimen/dimen_8"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rv_navmenu"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_nav_menu"
                     tools:targetApi="lollipop">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/payme_orders"
+                        android:id="@+id/pay_me_orders"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         android:drawableEnd="@drawable/delivery"
                         android:fontFamily="sans-serif"
-                        android:text="@string/shiping_orders"
+                        android:text="@string/shipping_orders"
                         android:textColor="#FF931F51"
                         android:textSize="@dimen/text_16"
                         android:textStyle="bold" />
@@ -77,25 +74,25 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/pay_me_main_viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/payme_main_viewpager"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ship_view"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ship_view" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/payme_bottom_app_bar"
+                android:id="@+id/pay_me_bottom_app_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 app:fabAlignmentMode="center"
-                app:menu="@menu/bottom_nav_main"
-                app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
                 app:fabCradleMargin="@dimen/dimen_8"
+                app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
                 app:hideOnScroll="true"
+                app:menu="@menu/bottom_nav_main"
                 tools:ignore="BottomAppBar" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -103,7 +100,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/super_deal"
-                app:srcCompat="@drawable/belize"/>
+                app:srcCompat="@drawable/belize" />
 
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/nav_view"
@@ -116,6 +113,7 @@
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
 
 

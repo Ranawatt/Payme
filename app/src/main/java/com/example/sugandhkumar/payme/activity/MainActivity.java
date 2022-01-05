@@ -7,16 +7,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 
 import com.example.sugandhkumar.payme.GetLocationActivity;
 import com.example.sugandhkumar.payme.databinding.ActivityMainBinding;
-import com.example.sugandhkumar.payme.helper.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -24,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.core.view.MenuItemCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
@@ -36,8 +34,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.sugandhkumar.payme.Callback;
@@ -75,6 +71,7 @@ import static com.example.sugandhkumar.payme.helper.Constants.currencyUnit;
 import static com.example.sugandhkumar.payme.helper.Constants.payeeAddress;
 import static com.example.sugandhkumar.payme.helper.Constants.payeeName;
 import static com.example.sugandhkumar.payme.helper.Constants.transactionNote;
+import static com.example.sugandhkumar.payme.helper.Utils.isNetworkAvailable;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,Callback {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -84,7 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter navAdapter;
     private DatabaseReference mDatabase;
-    private List<Navmenu> navmenuList;
+    private List<Navmenu> navMenuList;
+
     MenuItem prevMenuItem;
 
     private ActivityMainBinding mBinding;
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         auth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
 //        setUpViewPager(paymeMainViewpager);
 
@@ -125,13 +123,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Created by Sugandh Ranawatt    Copyright © 2016", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, getString(R.string.copy_right), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mBinding.navView.setNavigationItemSelectedListener(this);
         changeStatusBarColor();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("category");
@@ -140,10 +137,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Navmenu navmenu = postSnapshot.getValue(Navmenu.class);
-                    navmenuList.add(navmenu);
+                    navMenuList.add(navmenu);
                 }
 
-                navAdapter = new NavMenuAdapter(getApplicationContext(),navmenuList,onClickListener);
+                navAdapter = new NavMenuAdapter(getApplicationContext(),navMenuList,onClickListener);
                 mRecyclerView.setAdapter(navAdapter);
             }
             @Override
@@ -187,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Uri uri = Uri.parse("upi://pay?pa="+ payeeAddress +"&pn="+payeeName+"&tn="+transactionNote+
                 "&am="+ amount +"&cu="+currencyUnit);
-        Log.d(TAG, "onClick: uri: "+uri);
+        System.out.println(uri);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         PackageManager packageManager = getPackageManager();
         List activities = packageManager.queryIntentActivities(intent,
@@ -216,10 +213,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initView(){
-        mRecyclerView = (RecyclerView) findViewById(R.id.rv_navmenu);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
-        navmenuList = new ArrayList<>();
+
+        mBinding.rvNavMenu.setHasFixedSize(true);
+        mBinding.rvNavMenu.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+        navMenuList = new ArrayList<>();
 
 //        mBinding.paymeOrders.setOnClickListener(new OnClickListener() {
 //            @Override
@@ -263,13 +260,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
     }
-    private boolean isNetworkAvailable(Context context) {
-        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
-            return true;
-        else
-            return false;
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

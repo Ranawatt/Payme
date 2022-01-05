@@ -32,7 +32,7 @@
         android:id="@+id/progressBar2" />
 
     <TextView
-        android:text="@string/cmpny_name"
+        android:text="@string/company_name"
         android:textStyle="italic"
         android:fontFamily="sans-serif"
         android:textAlignment="center"
