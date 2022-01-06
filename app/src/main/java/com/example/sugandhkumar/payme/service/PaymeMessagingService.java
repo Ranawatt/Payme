@@ -30,10 +30,10 @@ import java.net.URL;
 /**
  * Created by sugandh kumar on 04-02-2018.
  */
-
 public class PaymeMessagingService extends FirebaseMessagingService {
     private static final String TAG = "FirebaseMessageService";
     Bitmap bitmap;
+    int messageCount = 0;
 
     /**
      * Called when message is received.
@@ -105,9 +105,11 @@ public class PaymeMessagingService extends FirebaseMessagingService {
                 .setLargeIcon(image)/*Notification icon image*/
                 .setSmallIcon(R.drawable.belize)
                 .setContentTitle(messageBody)
+                .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
                 .setStyle(new NotificationCompat.BigPictureStyle()
                         .bigPicture(image))/*Notification with Image*/
                 .setAutoCancel(true)
+                .setNumber(messageCount++)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 

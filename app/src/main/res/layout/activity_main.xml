@@ -82,38 +82,35 @@
                     app:layout_constraintTop_toBottomOf="@+id/ship_view" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/pay_me_bottom_app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                app:fabAlignmentMode="center"
-                app:fabCradleMargin="@dimen/dimen_8"
-                app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
-                app:hideOnScroll="true"
-                app:menu="@menu/bottom_nav_main"
-                tools:ignore="BottomAppBar" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/super_deal"
-                app:srcCompat="@drawable/belize" />
-
-            <com.google.android.material.navigation.NavigationView
-                android:id="@+id/nav_view"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:fitsSystemWindows="true"
-                app:headerLayout="@layout/nav_header_main"
-                app:menu="@menu/activity_main_drawer" />
         </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/pay_me_bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:fabAlignmentMode="center"
+            app:fabCradleMargin="@dimen/dimen_8"
+            app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
+            app:hideOnScroll="true"
+            app:menu="@menu/bottom_nav_main" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/super_deal"
+            app:srcCompat="@drawable/belize" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
-
-
-

@@ -48,7 +48,7 @@
     <!--TODO (1) Add a String stating that an error has occured-->
     <string name="dialog_ok">OK</string>
 
-    <string name="author_msg">"\"Everyday is a fashion show and the world is your runway.\""</string>
+    <string name="author_msg">Everyday is a fashion show and the world is your runway.</string>
     <string name="super_deal">Super Deal</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="shipping_orders">FREE SHIPPING ON ALL ORDER</string>
