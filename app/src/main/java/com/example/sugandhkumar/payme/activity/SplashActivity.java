@@ -35,13 +35,10 @@ public class SplashActivity extends AppCompatActivity {
 
         fromBottom = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.frombottom);
         textView.setAnimation(fromBottom);
-        new Thread(new Runnable() {
-
-            public void run() {
-                doWork();
-                startApp();
-                finish();
-            }
+        new Thread(() -> {
+            doWork();
+            startApp();
+            finish();
         }).start();
     }
 

@@ -53,4 +53,7 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="shipping_orders">FREE SHIPPING ON ALL ORDER</string>
     <string name="copy_right">Created by Sugandh Ranawatt    Copyright © 2016</string>
+    <string name="you_are_not_signed_in">You are not signed in.</string>
+    <string name="get_an_account_to_access_all_trips_travellers_wallet_and_saved_cards">Get an account to access all trips, travellers, wallet and saved cards</string>
+    <string name="sign_in_or_register">SIGN IN OR REGISTER</string>
 </resources>

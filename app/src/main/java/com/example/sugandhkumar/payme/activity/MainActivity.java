@@ -18,10 +18,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.core.view.GravityCompat;
 import androidx.core.view.MenuItemCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseAuth auth;
     private BottomNavigationView mBottomNavigationView;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter navAdapter;
+    private NavMenuAdapter navAdapter;
     private DatabaseReference mDatabase;
     private List<Navmenu> navMenuList;
 
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
-//        setUpViewPager(paymeMainViewpager);
+        setUpViewPager(mBinding.payMeMainViewpager);
 
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -120,15 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, getString(R.string.copy_right), Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, getString(R.string.copy_right), Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
-        mBinding.navView.setNavigationItemSelectedListener(this);
+//        mBinding.navView.setNavigationItemSelectedListener(this);
         changeStatusBarColor();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("category");
@@ -165,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         subscribeToPushService();
     }
 
-    private void setUpViewPager(ViewPager2 paymeMainViewpager) {
+    private void setUpViewPager(ViewPager2 payMeMainViewpager) {
         MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
 
         MobrechargeFragment mobrechargeFragment = new MobrechargeFragment();
@@ -177,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter.addFragment(electricityFragment);
         adapter.addFragment(dthrechargeFragment);
         adapter.addFragment(waterchargeFragment);
-        paymeMainViewpager.setAdapter(navAdapter);
+        payMeMainViewpager.setAdapter(navAdapter);
     }
 
     public void processToPayments() {
@@ -218,47 +216,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mBinding.rvNavMenu.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         navMenuList = new ArrayList<>();
 
-//        mBinding.paymeOrders.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this,Main6Activity.class));
-//            }
-//        });
-//        mBinding.paymeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
-//            @Override
-//            public void onViewAttachedToWindow(View v) {
-//
-//            }
-//
-//            @Override
-//            public void onViewDetachedFromWindow(View v) {
-//
-//            }
-//        });
+        mBinding.payMeOrders.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Main6Activity.class));
+            }
+        });
+        mBinding.payMeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
 
-//        mBinding.paymeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                if (prevMenuItem != null) {
-//                    prevMenuItem.setChecked(false);
-//                } else {
-//                    mBottomNavigationView.getMenu().getItem(0).setChecked(false);
-//                }
-//                Log.d("page", "On PageSelected: " + position);
-//                mBottomNavigationView.getMenu().getItem(position).setChecked(true);
-//                prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
-//            }
+            }
 
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//                super.onPageScrollStateChanged(state);
-//            }
-//        });
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+
+            }
+        });
+
+        mBinding.payMeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (prevMenuItem != null) {
+                    prevMenuItem.setChecked(false);
+                } else {
+                    mBottomNavigationView.getMenu().getItem(0).setChecked(false);
+                }
+                Log.d("page", "On PageSelected: " + position);
+                mBottomNavigationView.getMenu().getItem(position).setChecked(true);
+                prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
+        });
     }
 
 
@@ -285,9 +283,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onBackPressed() {
 
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
+//        if (mBinding.navView.isShown()) {
+//            mBinding.navView.setE;
 //        } else {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Confirm Exit");

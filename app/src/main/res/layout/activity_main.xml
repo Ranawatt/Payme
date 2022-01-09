@@ -4,103 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.sugandhkumar.payme.activity.MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorAccent"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
+        <androidx.fragment.app.FragmentContainerView
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:id="@+id/nav_host_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:fillViewport="true">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom=".5dp"
-                android:orientation="vertical"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_nav_menu"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_80"
-                    android:orientation="horizontal"
-                    android:scrollbarStyle="insideOverlay"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/ship_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen_6"
-                    android:elevation="@dimen/dimen_3"
-                    android:padding="@dimen/dimen_8"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rv_nav_menu"
-                    tools:targetApi="lollipop">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/pay_me_orders"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:drawableEnd="@drawable/delivery"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/shipping_orders"
-                        android:textColor="#FF931F51"
-                        android:textSize="@dimen/text_16"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/pay_me_main_viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ship_view" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/pay_me_bottom_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            app:fabAlignmentMode="center"
-            app:fabCradleMargin="@dimen/dimen_8"
-            app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
-            app:hideOnScroll="true"
-            app:menu="@menu/bottom_nav_main" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/super_deal"
-            app:srcCompat="@drawable/belize" />
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"/>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -108,9 +24,102 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            android:foregroundGravity="left"
             app:headerLayout="@layout/nav_header_main"
             app:menu="@menu/activity_main_drawer" />
 
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
+
+<!--<com.google.android.material.appbar.AppBarLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+<!--<androidx.appcompat.widget.Toolbar-->
+<!--    android:id="@+id/toolbar"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="?attr/actionBarSize"-->
+<!--    android:background="?attr/colorAccent"-->
+<!--    app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+
+<!--</com.google.android.material.appbar.AppBarLayout>-->
+
+<!--<androidx.core.widget.NestedScrollView-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:layout_marginTop="?attr/actionBarSize"-->
+<!--android:fillViewport="true">-->
+
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_marginBottom=".5dp"-->
+<!--    android:orientation="vertical"-->
+<!--    app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv_nav_menu"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dimen_80"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:scrollbarStyle="insideOverlay"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/ship_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/dimen_6"-->
+<!--        android:elevation="@dimen/dimen_3"-->
+<!--        android:padding="@dimen/dimen_8"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/rv_nav_menu"-->
+<!--        tools:targetApi="lollipop">-->
+
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:id="@+id/pay_me_orders"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:drawableEnd="@drawable/delivery"-->
+<!--            android:fontFamily="sans-serif"-->
+<!--            android:text="@string/shipping_orders"-->
+<!--            android:textColor="#FF931F51"-->
+<!--            android:textSize="@dimen/text_16"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    <androidx.viewpager2.widget.ViewPager2-->
+<!--        android:id="@+id/pay_me_main_viewpager"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/ship_view" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</androidx.core.widget.NestedScrollView>-->
+
+<!--<com.google.android.material.bottomappbar.BottomAppBar-->
+<!--android:id="@+id/pay_me_bottom_app_bar"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_gravity="bottom|end"-->
+<!--app:fabAlignmentMode="center"-->
+<!--app:fabCradleMargin="@dimen/dimen_8"-->
+<!--app:fabCradleRoundedCornerRadius="@dimen/dimen_32"-->
+<!--app:hideOnScroll="true"-->
+<!--app:menu="@menu/bottom_nav_main" />-->
+
+<!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--android:id="@+id/fab"-->
+<!--android:layout_width="fill_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:contentDescription="@string/super_deal"-->
+<!--app:srcCompat="@drawable/belize" />-->

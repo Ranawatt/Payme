@@ -1,62 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="@dimen/nav_header_height"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/side_nav_bar"
     android:paddingBottom="5dp"
-    android:paddingLeft="4dp"
-    android:paddingRight="0dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="0dp"
     android:paddingTop="11dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark" android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="horizontal"
     android:gravity="bottom"
     android:weightSum="1">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile"
+        android:layout_width="110dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/my_image"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_height="140dp"
+        android:layout_marginStart="4dp"
+        android:orientation="vertical"
         android:weightSum="1">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile"
-            android:layout_width="110dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="3dp"
-            android:src="@drawable/myimage"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FFFFFF"/>
 
-        <LinearLayout
-            android:orientation="vertical"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_marginLeft="4dp"
-            android:weightSum="1">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="5dp"
+            android:paddingTop="6dp"
+            android:text="@string/you_are_not_signed_in"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="0.82"
+            android:text="@string/get_an_account_to_access_all_trips_travellers_wallet_and_saved_cards" />
 
-            <TextView android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="6dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="5dp"
-                android:text="You are not signed in."
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-            <TextView android:layout_width="match_parent" android:layout_height="51dp"
-                android:layout_marginLeft="4dp"
-                android:text="Get an account to access all trips, travellers, wallet and saved cards"
-                android:id="@+id/textView"
-                android:layout_weight="0.82" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="SIGN IN OR REGISTER"
-                android:id="@+id/button"
-                android:layout_marginLeft="28dp"
-                android:backgroundTintMode="src_over"
-                android:gravity="center_horizontal" />
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:backgroundTintMode="src_over"
+            android:gravity="center_horizontal"
+            android:text="@string/sign_in_or_register"
+            android:textAlignment="center" />
     </LinearLayout>
+
 </LinearLayout>

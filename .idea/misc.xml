@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/activity_introduction.xml" value="0.1" />
         <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/content1_main.xml" value="0.1" />
         <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/androidprojects/Payme/app/src/main/res/layout/video_background.xml" value="0.1" />
+        <entry key="..\:/androidprojects/Payme/app/src/main/res/menu/activity_main_drawer.xml" value="0.184375" />
         <entry key="..\:/androidprojects/Payme/app/src/main/res/menu/bottom_nav_main.xml" value="0.184375" />
       </map>
     </option>

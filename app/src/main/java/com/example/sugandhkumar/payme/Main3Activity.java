@@ -24,12 +24,11 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
-        }
+
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
         setContentView(R.layout.activity_main3);
 
         imageView= findViewById(R.id.imageView);
