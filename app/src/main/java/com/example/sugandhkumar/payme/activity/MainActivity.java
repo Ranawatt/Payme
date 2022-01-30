@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
-        setUpViewPager(mBinding.payMeMainViewpager);
+//        setUpViewPager(mBinding.payMeMainViewpager);
 
         if (!isNetworkAvailable(this)) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -212,51 +212,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initView(){
 
-        mBinding.rvNavMenu.setHasFixedSize(true);
-        mBinding.rvNavMenu.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+//        mBinding.rvNavMenu.setHasFixedSize(true);
+//        mBinding.rvNavMenu.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         navMenuList = new ArrayList<>();
 
-        mBinding.payMeOrders.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Main6Activity.class));
-            }
-        });
-        mBinding.payMeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
-            @Override
-            public void onViewAttachedToWindow(View v) {
-
-            }
-
-            @Override
-            public void onViewDetachedFromWindow(View v) {
-
-            }
-        });
-
-        mBinding.payMeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (prevMenuItem != null) {
-                    prevMenuItem.setChecked(false);
-                } else {
-                    mBottomNavigationView.getMenu().getItem(0).setChecked(false);
-                }
-                Log.d("page", "On PageSelected: " + position);
-                mBottomNavigationView.getMenu().getItem(position).setChecked(true);
-                prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
-            }
-        });
+//        mBinding.payMeOrders.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this,Main6Activity.class));
+//            }
+//        });
+//        mBinding.payMeMainViewpager.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
+//            @Override
+//            public void onViewAttachedToWindow(View v) {
+//
+//            }
+//
+//            @Override
+//            public void onViewDetachedFromWindow(View v) {
+//
+//            }
+//        });
+//
+//        mBinding.payMeMainViewpager.registerOnPageChangeCallback(new OnPageChangeCallback() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                if (prevMenuItem != null) {
+//                    prevMenuItem.setChecked(false);
+//                } else {
+//                    mBottomNavigationView.getMenu().getItem(0).setChecked(false);
+//                }
+//                Log.d("page", "On PageSelected: " + position);
+//                mBottomNavigationView.getMenu().getItem(position).setChecked(true);
+//                prevMenuItem = mBottomNavigationView.getMenu().getItem(position);
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//                super.onPageScrollStateChanged(state);
+//            }
+//        });
     }
 
 

@@ -5,18 +5,55 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/coordinator_layout"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.sugandhkumar.payme.activity.MainActivity">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:id="@+id/nav_host_fragment"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph"/>
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/navigation_graph" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/pay_me_bottom_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                app:fabAlignmentMode="center"
+                app:fabCradleMargin="@dimen/dimen_8"
+                app:fabCradleRoundedCornerRadius="@dimen/dimen_32"
+                app:hideOnScroll="true"
+                app:menu="@menu/bottom_nav_main" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/super_deal"
+                app:srcCompat="@drawable/belize" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -32,19 +69,7 @@
 
 </layout>
 
-<!--<com.google.android.material.appbar.AppBarLayout-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:theme="@style/AppTheme.AppBarOverlay">-->
 
-<!--<androidx.appcompat.widget.Toolbar-->
-<!--    android:id="@+id/toolbar"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="?attr/actionBarSize"-->
-<!--    android:background="?attr/colorAccent"-->
-<!--    app:popupTheme="@style/AppTheme.PopupOverlay" />-->
-
-<!--</com.google.android.material.appbar.AppBarLayout>-->
 
 <!--<androidx.core.widget.NestedScrollView-->
 <!--android:layout_width="match_parent"-->
@@ -106,20 +131,3 @@
 <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 <!--</androidx.core.widget.NestedScrollView>-->
 
-<!--<com.google.android.material.bottomappbar.BottomAppBar-->
-<!--android:id="@+id/pay_me_bottom_app_bar"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_gravity="bottom|end"-->
-<!--app:fabAlignmentMode="center"-->
-<!--app:fabCradleMargin="@dimen/dimen_8"-->
-<!--app:fabCradleRoundedCornerRadius="@dimen/dimen_32"-->
-<!--app:hideOnScroll="true"-->
-<!--app:menu="@menu/bottom_nav_main" />-->
-
-<!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--android:id="@+id/fab"-->
-<!--android:layout_width="fill_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:contentDescription="@string/super_deal"-->
-<!--app:srcCompat="@drawable/belize" />-->

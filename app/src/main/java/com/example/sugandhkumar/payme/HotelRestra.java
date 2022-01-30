@@ -12,8 +12,8 @@ public class HotelRestra extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_restra);
-        tabLayout=(TabLayout) findViewById(R.id.tab_layout);
-        viewPager= (ViewPager) findViewById(R.id.view_pager);
+        tabLayout= findViewById(R.id.tab_layout);
+        viewPager= findViewById(R.id.view_pager);
 
     }
 }
